@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Box, Flex, Text, Avatar } from "@chakra-ui/react";
+import { Box, Flex, Text, Avatar, Spacer } from "@chakra-ui/react";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
@@ -35,13 +35,14 @@ const Property = ({
       <Box>
         <Image
           src={coverPhoto ? coverPhoto.url : DefaultImage}
-          width={400}
+          width={420}
           height={260}
+          layout="intrinsic"
           alt="house"
         />
       </Box>
       <Box w="full">
-        <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
+        <Flex padding="1" alignItems="center" justifyContent="space-between">
           <Flex alignItems="center">
             <Box paddingRight="3" color="green.400">
               {isVerified && <GoVerified />}
@@ -70,6 +71,7 @@ const Property = ({
         </Text>
       </Box>
     </Flex>
+    {/* <Spacer/> */}
   </Link>
 );
 
