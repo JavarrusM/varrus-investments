@@ -301,6 +301,33 @@ const NAV_ITEMS = [
     ],
   },
   {
+    label: "Photography",
+    subLabel: "Build Houses at Affordable Prices",
+    href: "#",
+    children: [
+      {
+        label: "Virtual Tours",
+        subLabel: "3D Real Estate Tour Hosting Services",
+        href: "#",
+      },
+      {
+        label: "3D Photos",
+        subLabel: "3D Real Estate Photos Services (by room)",
+        href: "#",
+      },
+      {
+        label: "Drone Photos",
+        subLabel: "Drone Real Estate Photo Services",
+        href: "#",
+      },
+      {
+        label: "Drone Videos",
+        subLabel: "Drone Real Estate Video Services",
+        href: "#",
+      },
+    ],
+  },
+  {
     label: "Maintenance",
     href: "#",
     children: [
