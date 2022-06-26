@@ -6,6 +6,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import Layout from "../components/Layout";
 
+import firebase from "../utils/firebase";
+
 function MyApp({ Component, pageProps }) {
   NProgress.configure({ showSpinner: false });
 
