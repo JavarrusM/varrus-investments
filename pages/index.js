@@ -47,7 +47,17 @@ const Banner = ({
 
 export default function Home({ propertiesForSale, propertiesForRent }) {
   return (
-    <Hero />
+    <>
+      <Hero />
+      <iframe
+        width="853"
+        height="480"
+        src="https://my.matterport.com/show/?m=78JiM1dQoCe"
+        frameBorder="0"
+        allowFullScreen
+        allow="xr-spatial-tracking"
+      ></iframe>
+    </>
     // <Box>
     //   <Banner
     //     purpose="RENT A HOME"
