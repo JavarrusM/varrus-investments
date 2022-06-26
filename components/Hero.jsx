@@ -41,7 +41,7 @@ export default function Hero() {
           <Text color={"gray.500"}>
             Varrus is striving to make Dominican Republic real estate more
             transparent by offering services from partners that have been vetted
-            with established track record. Established in Puerto Plata, with
+            with an established track record. Established in Puerto Plata, with
             plans to expand country-wide.
           </Text>
           <Stack
