@@ -176,6 +176,9 @@ const Layout = ({ children }) => {
       {/* <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} /> */}
       <Box m="auto">{children}</Box>
       {/* </Box> */}
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
