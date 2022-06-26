@@ -8,7 +8,7 @@ import Property from "../components/Property";
 import noresult from "../assets/images/noresult.svg";
 import { fetchApi, baseUrl } from "../utils/fetchApi";
 
-const Search = ({ properties }) => {
+export default function Properties({ properties }) {
   const [searchFilters, setSearchFilters] = useState(false);
   const router = useRouter();
 
@@ -54,10 +54,10 @@ const Search = ({ properties }) => {
       )}
     </Box>
   );
-};
+}
 
 export async function getServerSideProps({ query }) {
-  const purpose = query.purpose || "for-rent";
+  const purpose = query.purpose || "for-sale";
   const rentFrequency = query.rentFrequency || "yearly";
   const minPrice = query.minPrice || "0";
   const maxPrice = query.maxPrice || "1000000";
@@ -78,5 +78,3 @@ export async function getServerSideProps({ query }) {
     },
   };
 }
-
-export default Search;
