@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Box, Flex, Text, Avatar, Spacer } from "@chakra-ui/react";
@@ -6,11 +8,13 @@ import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import millify from "millify";
 
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+
 import DefaultImage from "../assets/images/house.jpg";
 
 const Property = ({
   property: {
-    coverPhoto,
+    name,
     price,
     rentFrequency,
     title,
@@ -18,11 +22,27 @@ const Property = ({
     baths,
     area,
     agency,
-    isVerified,
-    externalID,
+    isVerified
   },
-}) => (
-  <Link href={`/property/${externalID}`} passHref>
+}) => {
+  // test
+  const [coverUrl, setCoverUrl] = useState(null);
+
+  const storage = getStorage();
+
+  // Create a reference under which you want to list
+  const coverRef = ref(storage, `${name}/cover.jpg`);
+
+  // const pathReference = ref(storage, 'images/stars.jpg');
+  useEffect(() => {
+    getDownloadURL(coverRef).then((url) => {
+      // Insert url into an <img> tag to "download"
+      setCoverUrl(url);
+    });
+  }, []);
+
+  return (
+  <Link href={`/property/${name}`} passHref>
     {/* {title} */}
     <Flex
       flexWrap="wrap"
@@ -33,8 +53,8 @@ const Property = ({
       cursor="pointer"
     >
       <Box>
-        <Image
-          src={coverPhoto ? coverPhoto.url : DefaultImage}
+        <img
+          src={coverUrl}
           width={420}
           height={260}
           layout="intrinsic"
@@ -49,7 +69,7 @@ const Property = ({
             </Box>
             <Text fontWeight="bold" fontSize="lg">
               AED {millify(price)}
-              {rentFrequency && `/${rentFrequency}`}
+              {/* {rentFrequency && `/${rentFrequency}`} */}
             </Text>
           </Flex>
           <Box>
@@ -73,6 +93,6 @@ const Property = ({
     </Flex>
     {/* <Spacer/> */}
   </Link>
-);
+)};
 
 export default Property;
