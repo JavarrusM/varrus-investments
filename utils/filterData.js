@@ -1,8 +1,8 @@
 export const filterData = [
     {
       items: [
-        { name: 'Buy', value: 'for-sale' },
-        { name: 'Rent', value: 'for-rent' },
+        { name: 'Buy', value: 'buy' },
+        { name: 'Rent', value: 'rent' },
       ],
       placeholder: 'Purpose',
       queryName: 'purpose',
@@ -27,7 +27,7 @@ export const filterData = [
         { name: '60,000', value: '60000' },
         { name: '85,000', value: '85000' },
       ],
-      placeholder: 'Min Price(AED)',
+      placeholder: 'Min Price(DOP)',
       queryName: 'minPrice',
     },
     {
@@ -49,7 +49,7 @@ export const filterData = [
         { name: '900,000', value: '900000' },
         { name: '1000,000', value: '1000000' },
       ],
-      placeholder: 'Max Price(AED)',
+      placeholder: 'Max Price(DOP)',
       queryName: 'maxPrice',
     },
     {
@@ -74,7 +74,7 @@ export const filterData = [
         { name: '10000', value: '10000' },
         { name: '20000', value: '20000' },
       ],
-      placeholder: 'Max Area(sqft)',
+      placeholder: 'Max Area(sqm)',
       queryName: 'areaMax',
     },
     {
