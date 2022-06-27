@@ -291,12 +291,12 @@ const NAV_ITEMS = [
       {
         label: "Buying",
         subLabel: "Buy a Home or Invest",
-        href: "#",
+        href: "/properties?purpose=buying",
       },
       {
         label: "Selling",
         subLabel: "Sell Land and/or Houses",
-        href: "#",
+        href: "/selling",
       },
     ],
   },
@@ -306,71 +306,71 @@ const NAV_ITEMS = [
       {
         label: "Renting",
         subLabel: "Explore Our Rental Offerings",
-        href: "#",
+        href: "/renting",
       },
       {
         label: "Leasing",
         subLabel: "Lease With Our Property Management Team",
-        href: "#",
+        href: "/leasing",
       },
     ],
   },
   {
-    label: "Photography",
-    href: "#",
+    label: "Media",
+    href: "/media",
     children: [
       {
         label: "Virtual Tours",
         subLabel: "3D Real Estate Tour Hosting Services",
-        href: "#",
+        href: "/media?purpose=virtual-tour",
       },
       {
         label: "3D Photos",
         subLabel: "3D Real Estate Photos Services (by room)",
-        href: "#",
+        href: "/media?purpose=3d-photos",
       },
       {
         label: "Drone Photos",
         subLabel: "Drone Real Estate Photo Services",
-        href: "#",
+        href: "/media?purpose=drone-photos",
       },
       {
         label: "Drone Videos",
         subLabel: "Drone Real Estate Video Services",
-        href: "#",
+        href: "/media?purpose=drone-videos",
       },
     ],
   },
   {
     label: "Maintenance",
-    href: "#",
+    href: "/maintenance",
     children: [
       {
         label: "House Repairs",
         subLabel: "Lease With Our Property Management Team",
-        href: "#",
+        href: "/maintenance?purpose=repairs",
       },
       {
         label: "Painting",
         subLabel: "",
-        href: "#",
+        href: "/maintenance?purpose=painting",
       },
       {
         label: "Plumbing",
         subLabel: "Lease With Our Property Management Team",
-        href: "#",
+        href: "/maintenance?purpose=plumbing",
       },
     ],
   },
   {
     label: "Construction",
     subLabel: "Build Houses at Affordable Prices",
-    href: "#",
+    href: "/construction",
   },
   {
     label: "Lending",
     subLabel: "Explore our Lending Terms & Services",
-    href: "#",
+    href: "/lending",
   },
 ];
 
