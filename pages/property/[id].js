@@ -35,7 +35,7 @@ const PropertyDetails = ({
             {isVerified && <GoVerified />}
           </Box>
           <Text fontWeight="bold" fontSize="lg">
-            AED {millify(price)}
+            DOP {millify(price)}
             {rentFrequency && `/${rentFrequency}`}
           </Text>
         </Flex>
@@ -50,7 +50,7 @@ const PropertyDetails = ({
         w="250px"
         color="blue.400"
       >
-        {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft{" "}
+        {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqm{" "}
         <BsGridFill />
       </Flex>
       <Box marginTop="2">
