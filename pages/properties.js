@@ -8,9 +8,21 @@ import Property from "../components/Property";
 import noresult from "../assets/images/noresult.svg";
 import { fetchApi, baseUrl } from "../utils/fetchApi";
 
-export default function Properties({ properties }) {
+import db from "/utils/firebase";
+import {
+  collection,
+  onSnapshot,
+  where,
+  query as firebaseQuery,
+  limit,
+  getDocs,
+} from "firebase/firestore";
+
+export default function Properties({ properties, propertiesTest }) {
   const [searchFilters, setSearchFilters] = useState(false);
   const router = useRouter();
+
+  console.log(propertiesTest);
 
   return (
     <Box>
@@ -57,7 +69,9 @@ export default function Properties({ properties }) {
 }
 
 export async function getServerSideProps({ query }) {
-  const purpose = query.purpose || "for-sale";
+  const properties = [];
+
+  const purpose = query.purpose || "buy";
   const rentFrequency = query.rentFrequency || "yearly";
   const minPrice = query.minPrice || "0";
   const maxPrice = query.maxPrice || "1000000";
@@ -68,13 +82,29 @@ export async function getServerSideProps({ query }) {
   const locationExternalIDs = query.locationExternalIDs || "5002";
   const categoryExternalID = query.categoryExternalID || "4";
 
+  console.log(purpose);
+
+  const q = firebaseQuery(
+    collection(db, "Properties"),
+    where("purpose", "==", purpose)
+  );
+
+  const docs = await getDocs(q);
+
+  console.log(docs.d);
+
   const data = await fetchApi(
     `${baseUrl}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&maxPrice=${maxPrice}&minPrice=${minPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`
   );
 
+  docs.forEach((doc) => {
+    properties.push(doc.data());
+  });
+
   return {
     props: {
       properties: data?.hits,
+      propertiesTest: JSON.parse(JSON.stringify(properties)),
     },
   };
 }
