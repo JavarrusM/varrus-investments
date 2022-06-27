@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Flex, Box, Text, Icon } from "@chakra-ui/react";
@@ -9,6 +9,7 @@ import noresult from "../assets/images/noresult.svg";
 import { fetchApi, baseUrl } from "../utils/fetchApi";
 
 import db from "/utils/firebase";
+
 import {
   collection,
   onSnapshot,
@@ -18,11 +19,9 @@ import {
   getDocs,
 } from "firebase/firestore";
 
-export default function Properties({ properties, propertiesTest }) {
+export default function Properties({ properties }) {
   const [searchFilters, setSearchFilters] = useState(false);
   const router = useRouter();
-
-  console.log(propertiesTest);
 
   return (
     <Box>
@@ -41,13 +40,14 @@ export default function Properties({ properties, propertiesTest }) {
         <Text>Search Property By Filter</Text>
         <Icon paddingLeft="2" w="7" as={BsFilter} />
       </Flex>
+
       {searchFilters && <SearchFilters />}
       <Text fontSize="2xl" p="4" fontWeight="bold">
         Properties {router.query.purpose}
       </Text>
       <Flex flexWrap="wrap" gridGap={2}>
         {properties.map((property) => (
-          <Property property={property} key={property.id} />
+          <Property property={property} key={property.name} />
         ))}
       </Flex>
       {properties.length === 0 && (
@@ -82,8 +82,6 @@ export async function getServerSideProps({ query }) {
   const locationExternalIDs = query.locationExternalIDs || "5002";
   const categoryExternalID = query.categoryExternalID || "4";
 
-  console.log(purpose);
-
   const q = firebaseQuery(
     collection(db, "Properties"),
     where("purpose", "==", purpose)
@@ -91,20 +89,14 @@ export async function getServerSideProps({ query }) {
 
   const docs = await getDocs(q);
 
-  console.log(docs.d);
-
-  const data = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&maxPrice=${maxPrice}&minPrice=${minPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`
-  );
-
   docs.forEach((doc) => {
     properties.push(doc.data());
   });
 
   return {
     props: {
-      properties: data?.hits,
-      propertiesTest: JSON.parse(JSON.stringify(properties)),
+      // properties: data?.hits,
+      properties: JSON.parse(JSON.stringify(properties)),
     },
   };
 }
