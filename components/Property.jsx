@@ -11,6 +11,7 @@ import millify from "millify";
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 import DefaultImage from "../assets/images/house.jpg";
+import VarrusLogoBlack from "../assets/images/varrus-logo-black.png";
 
 const Property = ({
   property: {
@@ -73,7 +74,7 @@ const Property = ({
             </Text>
           </Flex>
           <Box>
-            <Avatar size="sm" src={agency?.logo?.url}/>
+            <Image src={VarrusLogoBlack} alt="varrus logo black" width={25}  height={25}/>
           </Box>
         </Flex>
         <Flex
