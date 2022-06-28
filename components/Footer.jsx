@@ -11,6 +11,10 @@ import {
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
+import Image from "next/image";
+
+import VarrusLogoGray from "../assets/images/varrus-logo-gray.png";
+
 const Logo = (props) => {
   return (
     // <svg
@@ -19,7 +23,8 @@ const Logo = (props) => {
     //   xmlns="http://www.w3.org/2000/svg"
     //   {...props}
     // >
-    <Text color={useColorModeValue("gray.300", "gray.300")}>Varrus LLC</Text>
+    <Image src={VarrusLogoGray} alt="Varrus logo white" width={50} height={50}  />
+    // <Text color={useColorModeValue("gray.300", "gray.300")}>Varrus LLC</Text>
   );
 };
 
