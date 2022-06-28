@@ -67,7 +67,14 @@ export default function Navbar() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            <Image src={VarrusLogoBlack} alt="Varrus logo black" width={25} height={25}  />
+            <Link p={2} href={"/"}>
+              <Image
+                src={VarrusLogoBlack}
+                alt="Varrus logo black"
+                width={25}
+                height={25}
+              />
+            </Link>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -294,27 +301,22 @@ const NAV_ITEMS = [
     children: [
       {
         label: "Buying",
-        subLabel: "Buy a Home or Invest",
+        subLabel: "Buy a home or invest",
         href: "/properties?purpose=buying",
       },
       {
         label: "Selling",
-        subLabel: "Sell Land and/or Houses",
+        subLabel: "Sell land and/or houses",
         href: "/selling",
       },
-    ],
-  },
-  {
-    label: "Rentals",
-    children: [
       {
         label: "Renting",
-        subLabel: "Explore Our Rental Offerings",
-        href: "/renting",
+        subLabel: "Explore our rental offerings",
+        href: "/properties?purpose=renting",
       },
       {
         label: "Leasing",
-        subLabel: "Lease With Our Property Management Team",
+        subLabel: "Lease with our property management team",
         href: "/leasing",
       },
     ],
@@ -324,24 +326,14 @@ const NAV_ITEMS = [
     href: "/media",
     children: [
       {
-        label: "Virtual Tours",
-        subLabel: "3D Real Estate Tour Hosting Services",
+        label: "Virtual",
+        subLabel: "3D real estate tours, pictures and hosting services",
         href: "/media?purpose=virtual-tour",
       },
       {
-        label: "3D Photos",
-        subLabel: "3D Real Estate Photos Services (by room)",
-        href: "/media?purpose=3d-photos",
-      },
-      {
-        label: "Drone Photos",
-        subLabel: "Drone Real Estate Photo Services",
+        label: "Drone",
+        subLabel: "Drone real estate photo and video services",
         href: "/media?purpose=drone-photos",
-      },
-      {
-        label: "Drone Videos",
-        subLabel: "Drone Real Estate Video Services",
-        href: "/media?purpose=drone-videos",
       },
     ],
   },
@@ -351,64 +343,41 @@ const NAV_ITEMS = [
     children: [
       {
         label: "House Repairs",
-        subLabel: "Lease With Our Property Management Team",
+        subLabel: "Find the highest quality services and people for you work",
         href: "/maintenance?purpose=repairs",
-      },
-      {
-        label: "Painting",
-        subLabel: "",
-        href: "/maintenance?purpose=painting",
-      },
-      {
-        label: "Plumbing",
-        subLabel: "Lease With Our Property Management Team",
-        href: "/maintenance?purpose=plumbing",
       },
     ],
   },
   {
     label: "Construction",
-    subLabel: "Build Houses at Affordable Prices",
     href: "/construction",
+    children: [
+      {
+        label: "General Construction",
+        subLabel: "Build housing at affordable prices",
+        href: "/maintenance?purpose=management",
+      },
+      {
+        label: "Refurbishing",
+        subLabel: "Restoring properties to their former glory",
+        href: "/maintenance?purpose=repairs",
+      },
+    ],
   },
   {
     label: "Lending",
-    subLabel: "Explore our Lending Terms & Services",
     href: "/lending",
+    children: [
+      {
+        label: "Personal Loans",
+        subLabel: "Explore your personal loan options",
+        href: "/lending?purpose=personal",
+      },
+      {
+        label: "Mortgage Loans",
+        subLabel: "Expore your mortgage loan options",
+        href: "/lending?purpose=mortgage",
+      },
+    ],
   },
 ];
-
-// const Navbar = () => (
-//   <Flex p="2" borderBottom="1px" borderColor="gray.100">
-//     <Box fontSize="3x1" color="blue.400" fontWeight="bold">
-//       <Link href="/" paddingLeft="2">
-//         Varrus
-//       </Link>
-//     </Box>
-//     <Spacer />
-//     <Box>
-//       <Menu>
-//         <MenuButton
-//           as={IconButton}
-//           icon={<FcMenu />}
-//           variant="outline"
-//           color="red.100"
-//         />
-//         <MenuList>
-//           <Link href="/" passHref>
-//             <MenuItem icon={<FcHome />}>Home</MenuItem>
-//           </Link>
-//           <Link href="/search" passHref>
-//             <MenuItem icon={<BsSearch />}>Search</MenuItem>
-//           </Link>
-//           <Link href="/search?purpose-for-sale" passHref>
-//             <MenuItem icon={<FcAbout />}>Buy Property</MenuItem>
-//           </Link>
-//           <Link href="/search?purpose-for-rent" passHref>
-//             <MenuItem icon={<FcAbout />}>Rent Property</MenuItem>
-//           </Link>
-//         </MenuList>
-//       </Menu>
-//     </Box>
-//   </Flex>
-// );
