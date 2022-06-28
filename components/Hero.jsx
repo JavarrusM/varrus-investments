@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Head from "next/head";
 import {
   Box,
@@ -9,9 +11,32 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
+  Center,
 } from "@chakra-ui/react";
+import Image from "next/image";
+
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+
+import VarrusLogoWhite from "../assets/images/varrus-logo-white.png";
+// import HomePhoto from "../assets/images/home-photo.jpg";
 
 export default function Hero() {
+  // test
+  const [coverUrl, setCoverUrl] = useState(null);
+
+  const storage = getStorage();
+
+  // Create a reference under which you want to list
+  const coverRef = ref(storage, `home/home-photo.jpg`);
+
+  // const pathReference = ref(storage, 'images/stars.jpg');
+  useEffect(() => {
+    getDownloadURL(coverRef).then((url) => {
+      // Insert url into an <img> tag to "download"
+      setCoverUrl(url);
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -21,8 +46,17 @@ export default function Hero() {
         />
       </Head>
 
-      <Container maxW={"3xl"}>
+      <Container
+        // background="rgba(0, 0, 0, 0.5)"
+        w={"100%"}
+        h={"92vh"}
+        maxWidth="none"
+        backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, .6)) , url('${coverUrl}')`}
+        backgroundSize={"cover"}
+        backgroundPosition={"center center"}
+      >
         <Stack
+          opacity="1"
           as={Box}
           textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
@@ -32,18 +66,33 @@ export default function Hero() {
             fontWeight={600}
             fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
             lineHeight={"110%"}
+            color={"white"}
           >
-            VARRUS <br />
-            <Text as={"span"} color={"gray.400"}>
-              Services & Investments
+            <Image
+              src={VarrusLogoWhite}
+              alt="varrus hero logo white"
+              width={100}
+              height={100}
+            />
+            <br />
+            <Text as={"span"} color={"white"}>
+              VARRUS SERVICES
             </Text>
           </Heading>
-          <Text color={"gray.500"}>
-            Varrus is striving to make Dominican Republic real estate more
-            transparent by offering services from partners that have been vetted
-            with an established track record. Established in Puerto Plata, with
-            plans to expand country-wide.
-          </Text>
+          <Center>
+            <Text
+              color={"white"}
+              width="xl"
+              textAlign={"center"}
+              marginInlineStart="auto"
+              marginInlineEnd="auto"
+            >
+              Varrus is striving to make Dominican Republic real estate more
+              transparent by offering services from partners that have been
+              vetted with an established track record. Established in Puerto
+              Plata, with plans to expand country-wide.
+            </Text>
+          </Center>
           <Stack
             direction={"column"}
             spacing={3}
@@ -60,7 +109,7 @@ export default function Hero() {
                 bg: "gray.300",
               }}
             >
-              Get Started
+              SERVICES
             </Button>
             <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
               Learn more
