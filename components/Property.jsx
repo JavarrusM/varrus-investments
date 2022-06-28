@@ -32,7 +32,7 @@ const Property = ({
   const storage = getStorage();
 
   // Create a reference under which you want to list
-  const coverRef = ref(storage, `${name}/cover.jpg`);
+  const coverRef = ref(storage, `${name}/cover/cover.jpg`);
 
   // const pathReference = ref(storage, 'images/stars.jpg');
   useEffect(() => {
@@ -40,7 +40,7 @@ const Property = ({
       // Insert url into an <img> tag to "download"
       setCoverUrl(url);
     });
-  }, []);
+  }, [coverRef]);
 
   return (
   <Link href={`/property/${name}`} passHref>
