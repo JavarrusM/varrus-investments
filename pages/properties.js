@@ -27,7 +27,7 @@ export default function Properties({ properties }) {
     <Box>
       <Flex
         cursor="pointer"
-        bg="gray.100"
+        bg="gray.300"
         borderBottom="1px"
         borderColor="gray.200"
         p="2"
