@@ -35,7 +35,7 @@ export default function Hero() {
       // Insert url into an <img> tag to "download"
       setCoverUrl(url);
     });
-  }, []);
+  }, [coverRef]);
 
   return (
     <>
