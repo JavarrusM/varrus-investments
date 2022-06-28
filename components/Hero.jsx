@@ -49,7 +49,7 @@ export default function Hero() {
       <Container
         // background="rgba(0, 0, 0, 0.5)"
         w={"100%"}
-        h={"92vh"}
+        h={"100vh"}
         maxWidth="none"
         backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, .6)) , url('${coverUrl}')`}
         backgroundSize={"cover"}
@@ -87,10 +87,10 @@ export default function Hero() {
               marginInlineStart="auto"
               marginInlineEnd="auto"
             >
-              Varrus is striving to make Dominican Republic real estate more
-              transparent by offering services from partners that have been
-              vetted with an established track record. Established in Puerto
-              Plata, with plans to expand country-wide.
+              Varrus is striving to make transparent Dominican Republic services
+              by offering software with vetted partners that have an track
+              record. Originated in Puerto Plata, with plans to expand
+              country-wide.
             </Text>
           </Center>
           <Stack
