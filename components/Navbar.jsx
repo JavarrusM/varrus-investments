@@ -3,6 +3,10 @@ import { FcMenu, FcHome, FcAbout } from "react-icons/fc";
 import { BsSearch } from "react-icons/bs";
 import { FiKey } from "react-icons/fi";
 
+import Image from "next/image";
+
+import VarrusLogoBlack from "../assets/images/varrus-logo-black.png";
+
 import {
   Box,
   Link,
@@ -63,7 +67,7 @@ export default function Navbar() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            Varrus
+            <Image src={VarrusLogoBlack} alt="Varrus logo black" width={25} height={25}  />
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
