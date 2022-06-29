@@ -95,7 +95,6 @@ export async function getServerSideProps({ query }) {
 
   return {
     props: {
-      // properties: data?.hits,
       properties: JSON.parse(JSON.stringify(properties)),
     },
   };
