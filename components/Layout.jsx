@@ -12,7 +12,7 @@ const Layout = ({ children }) => (
     <nav>
       <Navbar />
     </nav>
-    <Box height={"100vh"} m="auto">{children}</Box>
+    <Box height="fit-content" minHeight="100vh"  m="auto">{children}</Box>
     <footer>
       <Footer />
     </footer>
