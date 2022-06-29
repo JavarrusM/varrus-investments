@@ -94,11 +94,11 @@ export default function Navbar() {
               display={{ md: "inline-flex" }}
               fontSize={"sm"}
               fontWeight={600}
-              color={"white"}
-              bg={"gray.400"}
+              color={"gray.400"}
+              bg={"black"}
               // href={"/contact"}
               _hover={{
-                color: "black",
+                color: "gray.100",
               }}
             >
               Contact Us
