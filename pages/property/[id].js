@@ -8,8 +8,12 @@ import {
   Avatar,
   Link,
   Tooltip,
+  Button,
 } from "@chakra-ui/react";
+import { IconButton } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { FaBed, FaBath } from "react-icons/fa";
+import { AiFillDownCircle } from "react-icons/ai";
 import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import millify from "millify";
@@ -29,6 +33,8 @@ import {
   limit,
   getDocs,
 } from "firebase/firestore";
+
+import { Link as SmoothLink } from "react-scroll";
 
 import ImageScrollBar from "../../components/ImageScrollBar";
 
@@ -52,15 +58,33 @@ const PropertyDetails = ({
     documents,
   },
 }) => {
-  //
-  // useEffect(() => {
-
-  // }, []);
-
   return (
     <>
       {media && <ImageScrollBar data={media} />}
-      <Box maxWidth="1000px" margin="auto" p="4">
+      <Flex
+        justifyContent="center"
+        position="absolute"
+        margin="auto"
+        top="75vh"
+        width="100%"
+      >
+        <SmoothLink to="content" smooth={true}>
+          <IconButton
+          colorScheme={"gray"}
+            aria-label="Search database"
+            isRound={true}
+            variant="ghost"
+            icon={<ChevronDownIcon w={35} h={35} color="whiteAlpha.900" _hover={{color:"blackAlpha.900"}}/>}
+          />
+        </SmoothLink>
+      </Flex>
+      <Box
+        maxWidth="1000px"
+        margin="auto"
+        p="4"
+        id="content"
+        scrollBehavior="smooth"
+      >
         <Box w="full" p="6">
           <Flex padding="1" alignItems="center" justifyContent="space-between">
             <Flex alignItems="center">
