@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Image from "next/image";
-import { Box, Icon, Flex, Text, Button } from "@chakra-ui/react";
+import { Box, Icon, Flex, Text, Button, Link } from "@chakra-ui/react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 
@@ -41,10 +41,17 @@ const ImageScrollBar = ({ data }) => (
       RightArrow={RightArrow}
       style={{ overflow: "hidden" }}
     > */}
-      {data.map((item, idx) => {
-        return (
-          <Box as={item.type} src={item.url} key={idx} width="full" height="85vh" itemID={idx}>
-            {/* {item.tpe === "photo" && (
+    {data.map((item, idx) => {
+      return (
+        <Box
+          as={item.type}
+          src={item.url}
+          key={idx}
+          width="full"
+          height="85vh"
+          itemID={idx}
+        >
+          {/* {item.tpe === "photo" && (
               <Image
                 alt="property"
                 placeholder="blur"
@@ -77,23 +84,25 @@ const ImageScrollBar = ({ data }) => (
                 src={item.url}
               />
             )} */}
-          </Box>
-        );
-      })}
+        </Box>
+      );
+    })}
     {/* </ScrollMenu> */}
     {/* <span> */}
     <Flex justify={"end"}>
       <Text as="cite" fontSize={"sm"} textAlign="end">
         Powered by Varrus Media{" "}
-        <Button
-          cursor="pointer"
-          as="cite"
-          variant={"link"}
-          colorScheme={"blue"}
-          size={"sm"}
-        >
-          Learn More
-        </Button>
+        <Link href="/contact">
+          <Button
+            cursor="pointer"
+            as="cite"
+            variant={"link"}
+            colorScheme={"blue"}
+            size={"sm"}
+          >
+            Learn More
+          </Button>
+        </Link>
       </Text>
     </Flex>
     {/* </span> */}

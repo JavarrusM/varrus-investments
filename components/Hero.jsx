@@ -88,9 +88,9 @@ export default function Hero() {
               marginInlineEnd="auto"
             >
               Varrus is striving to make transparent Dominican Republic services
-              by offering software with vetted partners that have an track
-              record. Originated in Puerto Plata, with plans to expand
-              country-wide.
+              by offering software for clients and working with verified
+              partners that have an accomplished track record. Originated in
+              Puerto Plata, with plans to expand country-wide.
             </Text>
           </Center>
           <Stack

@@ -65,7 +65,7 @@ const PropertyDetails = ({
         justifyContent="center"
         position="absolute"
         margin="auto"
-        top="75vh"
+        top="70vh"
         width="100%"
       >
         <SmoothLink to="content" smooth={true}>
