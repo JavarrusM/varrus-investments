@@ -89,16 +89,22 @@ export default function Navbar() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
+          <Link href="/contact">
+            <Button
+              display={{ md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"gray.400"}
+              // href={"/contact"}
+              _hover={{
+                color: "black",
+              }}
+            >
+              Contact Us
+            </Button>
+          </Link>
+          {/* <Button
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
             fontWeight={600}
@@ -110,7 +116,7 @@ export default function Navbar() {
             }}
           >
             Sign Up
-          </Button>
+          </Button> */}
         </Stack>
       </Flex>
 
@@ -288,13 +294,6 @@ const MobileNavItem = ({ label, children, href }) => {
     </Stack>
   );
 };
-
-// interface NavItem {
-//   label: string;
-//   subLabel?: string;
-//   children?: Array<NavItem>;
-//   href?: string;
-// }
 
 const NAV_ITEMS = [
   {
