@@ -23,7 +23,12 @@ const Logo = (props) => {
     //   xmlns="http://www.w3.org/2000/svg"
     //   {...props}
     // >
-    <Image src={VarrusLogoGray} alt="Varrus logo white" width={50} height={50}  />
+    <Image
+      src={VarrusLogoGray}
+      alt="Varrus logo white"
+      width={50}
+      height={50}
+    />
     // <Text color={useColorModeValue("gray.300", "gray.300")}>Varrus LLC</Text>
   );
 };
@@ -49,8 +54,8 @@ export default function Footer() {
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"}>
             <ListHeader>Product</ListHeader>
-            <Link href={"#"}>Overview</Link>
-            <Link href={"#"}>Features</Link>
+            <Text>Overview</Text>
+            <Text>Features</Text>
             {/* Example with new emblem */}
             {/* <Stack direction={"row"} align={"center"} spacing={2}>
               <Link href={"#"}>Features</Link>
@@ -63,33 +68,33 @@ export default function Footer() {
                 New
               </Tag>
             </Stack> */}
-            <Link href={"#"}>Tutorials</Link>
-            <Link href={"#"}>Pricing</Link>
-            <Link href={"#"}>Releases</Link>
+            {/* <Link href={"#"}>Tutorials</Link> */}
+            {/* <Link href={"#"}>Pricing</Link> */}
+            <Text>Releases</Text>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Company</ListHeader>
-            <Link href={"#"}>About Us</Link>
-            <Link href={"#"}>Press</Link>
-            <Link href={"#"}>Careers</Link>
-            <Link href={"#"}>Contact Us</Link>
-            <Link href={"#"}>Partners</Link>
+            <Text>About Us</Text>
+            <Text>Press</Text>
+            <Text>Careers</Text>
+            <Text href={"/contact"}>Contact Us</Text>
+            <Text>Partners</Text>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Legal</ListHeader>
-            <Link href={"#"}>Cookies Policy</Link>
-            <Link href={"#"}>Privacy Policy</Link>
-            <Link href={"#"}>Terms of Service</Link>
-            <Link href={"#"}>Law Enforcement</Link>
-            <Link href={"#"}>Status</Link>
+            <Text>Cookies Policy</Text>
+            <Text>Privacy Policy</Text>
+            <Text>Terms of Service</Text>
+            <Text>Law Enforcement</Text>
+            <Text>Status</Text>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Follow Us</ListHeader>
-            <Link href={"#"}>Facebook</Link>
-            <Link href={"#"}>Twitter</Link>
-            <Link href={"#"}>Dribbble</Link>
-            <Link href={"#"}>Instagram</Link>
-            <Link href={"#"}>LinkedIn</Link>
+            <Text>Facebook</Text>
+            <Text>Twitter</Text>
+            <Text>Dribbble</Text>
+            <Text>Instagram</Text>
+            <Text>LinkedIn</Text>
           </Stack>
         </SimpleGrid>
       </Container>
