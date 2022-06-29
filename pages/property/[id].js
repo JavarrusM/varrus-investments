@@ -66,7 +66,7 @@ const PropertyDetails = ({
             <Flex alignItems="center">
               <Box paddingRight="3" color="green.400" alignSelf={"end"}>
                 {isVerified && (
-                  <Tooltip label="Vetted" aria-label="Vetted">
+                  <Tooltip label="Verified" aria-label="Verified">
                     <span>
                       <Image
                         src={VarrusLogoGreen}
