@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 
-import { Box, Flex, Spacer, Text, Avatar, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Spacer,
+  Text,
+  Avatar,
+  Link,
+  Tooltip,
+} from "@chakra-ui/react";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
@@ -41,6 +49,7 @@ const PropertyDetails = ({
     amenities,
     name,
     media,
+    documents,
   },
 }) => {
   //
@@ -49,80 +58,65 @@ const PropertyDetails = ({
   // }, []);
 
   return (
-    <Box maxWidth="1000px" margin="auto" p="4">
+    <>
       {media && <ImageScrollBar data={media} />}
-      <Box w="full" p="6">
-        <Flex padding="1" alignItems="center" justifyContent="space-between">
-          <Flex alignItems="center">
-            <Box paddingRight="3" color="green.400" alignSelf={"end"}>
-              {isVerified && (
-                <Image
-                  src={VarrusLogoGreen}
-                  alt="varrus green verfied logo"
-                  width={15}
-                  height={15}
-                />
-              )}
-            </Box>
-            <Text fontWeight="bold" fontSize="lg">
-              DOP {millify(price)}
-              {rentFrequency && `/${rentFrequency}`}
+      <Box maxWidth="1000px" margin="auto" p="4">
+        <Box w="full" p="6">
+          <Flex padding="1" alignItems="center" justifyContent="space-between">
+            <Flex alignItems="center">
+              <Box paddingRight="3" color="green.400" alignSelf={"end"}>
+                {isVerified && (
+                  <Tooltip label="Vetted" aria-label="Vetted">
+                    <span>
+                      <Image
+                        src={VarrusLogoGreen}
+                        alt="varrus green verfied logo"
+                        width={15}
+                        height={15}
+                      />
+                    </span>
+                  </Tooltip>
+                )}
+              </Box>
+              <Text fontWeight="bold" fontSize="lg">
+                DOP {millify(price)}
+                {rentFrequency && `/${rentFrequency}`}
+              </Text>
+            </Flex>
+            <Flex flexDirection={"row"} alignItems="center" gap={2}>
+              <Text fontWeight={"bold"}>Contact: {"+1-859-488-6846"}</Text>
+              <Image
+                size="sm"
+                src={VarrusLogoBlack}
+                alt="agency icons"
+                width={25}
+                height={25}
+              />
+            </Flex>
+          </Flex>
+          <Flex
+            alignItems="center"
+            p="1"
+            justifyContent="space-between"
+            w="250px"
+            color="blue.400"
+          >
+            {rooms ? rooms : "-"} <FaBed /> | {baths ? baths : "-"} <FaBath /> |{" "}
+            {millify(area)} sqm <BsGridFill />
+          </Flex>
+          <Box marginTop="2">
+            <Text fontSize="lg" marginBottom="2" fontWeight="bold">
+              {title}
             </Text>
-          </Flex>
-          <Box>
-            <Image
-              size="sm"
-              src={VarrusLogoBlack}
-              alt="agency icons"
-              width={25}
-              height={25}
-            />
+            <Text lineHeight="2" color="gray.600">
+              {description}
+            </Text>
           </Box>
-        </Flex>
-        <Flex
-          alignItems="center"
-          p="1"
-          justifyContent="space-between"
-          w="250px"
-          color="blue.400"
-        >
-          {rooms ? rooms : "-"} <FaBed /> | {baths ? baths : "-"} <FaBath /> |{" "}
-          {millify(area)} sqm <BsGridFill />
-        </Flex>
-        <Box marginTop="2">
-          <Text fontSize="lg" marginBottom="2" fontWeight="bold">
-            {title}
-          </Text>
-          <Text lineHeight="2" color="gray.600">
-            {description}
-          </Text>
-        </Box>
-        <Flex
-          flexWrap="wrap"
-          textTransform="uppercase"
-          justifyContent="space-between"
-        >
           <Flex
+            flexWrap="wrap"
+            textTransform="uppercase"
             justifyContent="space-between"
-            w="400px"
-            borderBottom="1px"
-            borderColor="gray.100"
-            p="3"
           >
-            <Text>Type</Text>
-            <Text fontWeight="bold">{type}</Text>
-          </Flex>
-          <Flex
-            justifyContent="space-between"
-            w="400px"
-            borderBottom="1px"
-            borderColor="gray.100"
-            p="3"
-          >
-            <Text>Purpose</Text>
-            <Text fontWeight="bold">{purpose}</Text>
-          </Flex>
-          {furnishingStatus && (
             <Flex
               justifyContent="space-between"
               w="400px"
@@ -130,40 +124,72 @@ const PropertyDetails = ({
               borderColor="gray.100"
               p="3"
             >
-              <Text>Furnishing Status</Text>
-              <Text fontWeight="bold">{furnishingStatus}</Text>
+              <Text>Type</Text>
+              <Text fontWeight="bold">{type}</Text>
             </Flex>
-          )}
-        </Flex>
-        <Box>
-          {amenities.length && (
-            <Text fontSize="2xl" fontWeight="black" marginTop="5">
-              Amenities
-            </Text>
-          )}
-          <Flex flexWrap="wrap">
-            {amenities.map((amenity) => (
-              <Text
-                fontWeight="bold"
-                color="blue.400"
-                fontSize="l"
-                p="2"
-                bg="gray.200"
-                m="1"
-                borderRadius="5"
-                key={amenity.name}
+            <Flex
+              justifyContent="space-between"
+              w="400px"
+              borderBottom="1px"
+              borderColor="gray.100"
+              p="3"
+            >
+              <Text>Purpose</Text>
+              <Text fontWeight="bold">{purpose}</Text>
+            </Flex>
+            {furnishingStatus && (
+              <Flex
+                justifyContent="space-between"
+                w="400px"
+                borderBottom="1px"
+                borderColor="gray.100"
+                p="3"
               >
-                {amenity.link ? (
-                  <Link href={amenity.link}>{amenity.name}</Link>
-                ) : (
-                  amenity.name
-                )}
-              </Text>
-            ))}
+                <Text>Furnishing Status</Text>
+                <Text fontWeight="bold">{furnishingStatus}</Text>
+              </Flex>
+            )}
+            <Flex
+              justifyContent="space-between"
+              w="400px"
+              borderBottom="1px"
+              borderColor="gray.100"
+              p="3"
+            >
+              <Text>Documents</Text>
+              <Text fontWeight="bold">{documents}</Text>
+            </Flex>
           </Flex>
+          <Box>
+            {amenities.length && (
+              <Text fontSize="2xl" fontWeight="black" marginTop="5">
+                Amenities
+              </Text>
+            )}
+            <Flex flexWrap="wrap">
+              {amenities.map((amenity) => (
+                <Text
+                  fontWeight="bold"
+                  color="blue.400"
+                  fontSize="l"
+                  p="2"
+                  bg="gray.200"
+                  m="1"
+                  borderRadius="5"
+                  key={amenity.name}
+                >
+                  {amenity.link ? (
+                    <Link href={amenity.link}>{amenity.name}</Link>
+                  ) : (
+                    amenity.name
+                  )}
+                </Text>
+              ))}
+            </Flex>
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
@@ -174,7 +200,7 @@ export async function getServerSideProps({ params: { id } }) {
   const photos = [];
 
   const q = firebaseQuery(
-    collection(db, "Properties"),
+    collection(db, "properties"),
     where("name", "==", id)
   );
 
@@ -188,10 +214,10 @@ export async function getServerSideProps({ params: { id } }) {
     getDownloadURL(itemRef).then((url) => photos.push(url));
   });
 
-  console.log(photoList)
+  console.log(photoList);
 
   docs.forEach((doc) => {
-    properties.push({ ...doc.data()});
+    properties.push({ ...doc.data() });
   });
 
   console.log(properties);
