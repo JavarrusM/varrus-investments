@@ -45,7 +45,7 @@ export default function Properties({ properties }) {
       <Text fontSize="2xl" p="4" fontWeight="bold">
         Properties {/*router.query.purpose*/}
       </Text>
-      <Flex flexWrap="wrap" gridGap={2}>
+      <Flex flexWrap="wrap" gridGap={2} p={3}>
         {properties.map((property) => (
           <Property property={property} key={property.name} />
         ))}
