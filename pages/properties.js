@@ -43,7 +43,7 @@ export default function Properties({ properties }) {
 
       {searchFilters && <SearchFilters />}
       <Text fontSize="2xl" p="4" fontWeight="bold">
-        Properties {router.query.purpose}
+        Properties {/*router.query.purpose*/}
       </Text>
       <Flex flexWrap="wrap" gridGap={2}>
         {properties.map((property) => (
@@ -70,8 +70,9 @@ export default function Properties({ properties }) {
 
 export async function getServerSideProps({ query }) {
   const properties = [];
+  const constraints = [];
 
-  const purpose = query.purpose || "buy";
+  const purpose = query.purpose || "all";
   const rentFrequency = query.rentFrequency || "yearly";
   const minPrice = query.minPrice || "0";
   const maxPrice = query.maxPrice || "1000000";
@@ -82,10 +83,9 @@ export async function getServerSideProps({ query }) {
   const locationExternalIDs = query.locationExternalIDs || "5002";
   const categoryExternalID = query.categoryExternalID || "4";
 
-  const q = firebaseQuery(
-    collection(db, "Properties"),
-    where("purpose", "==", purpose)
-  );
+  if (purpose != "all") constraints.push(where("purpose", "==", purpose));
+
+  const q = firebaseQuery(collection(db, "properties"), ...constraints);
 
   const docs = await getDocs(q);
 
