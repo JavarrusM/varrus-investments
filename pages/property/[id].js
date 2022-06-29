@@ -70,11 +70,18 @@ const PropertyDetails = ({
       >
         <SmoothLink to="content" smooth={true}>
           <IconButton
-          colorScheme={"gray"}
+            colorScheme={"gray"}
             aria-label="Search database"
             isRound={true}
             variant="ghost"
-            icon={<ChevronDownIcon w={35} h={35} color="whiteAlpha.900" _hover={{color:"blackAlpha.900"}}/>}
+            icon={
+              <ChevronDownIcon
+                w={35}
+                h={35}
+                color="whiteAlpha.900"
+                _hover={{ color: "blackAlpha.900" }}
+              />
+            }
           />
         </SmoothLink>
       </Flex>
@@ -238,13 +245,9 @@ export async function getServerSideProps({ params: { id } }) {
     getDownloadURL(itemRef).then((url) => photos.push(url));
   });
 
-  console.log(photoList);
-
   docs.forEach((doc) => {
     properties.push({ ...doc.data() });
   });
-
-  console.log(properties);
 
   return {
     props: {

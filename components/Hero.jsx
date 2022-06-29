@@ -49,7 +49,7 @@ export default function Hero() {
       <Container
         // background="rgba(0, 0, 0, 0.5)"
         w={"100%"}
-        h={"100vh"}
+        h={"90vh"}
         maxWidth="none"
         backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, .6)) , url('${coverUrl}')`}
         backgroundSize={"cover"}

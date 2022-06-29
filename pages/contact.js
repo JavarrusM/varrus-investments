@@ -49,7 +49,7 @@ export default function Contact() {
       backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, .6)) , url('${coverUrl}')`}
       backgroundSize={"cover"}
       backgroundPosition={"center center"}
-      height="95vh"
+      height="90vh"
       maxW="full"
       mt={0}
       centerContent

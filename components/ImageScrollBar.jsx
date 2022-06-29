@@ -43,7 +43,7 @@ const ImageScrollBar = ({ data }) => (
     > */}
       {data.map((item, idx) => {
         return (
-          <Box as={item.type} src={item.url} key={idx} width="full" height="90vh" itemID={idx}>
+          <Box as={item.type} src={item.url} key={idx} width="full" height="85vh" itemID={idx}>
             {/* {item.tpe === "photo" && (
               <Image
                 alt="property"

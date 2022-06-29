@@ -40,7 +40,7 @@ export default function Navbar() {
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         // minH={"60px"}
-        height="5vh"
+        height="10vh"
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
@@ -250,7 +250,7 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? "#"}
+        // href={href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
