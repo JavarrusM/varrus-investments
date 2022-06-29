@@ -84,7 +84,7 @@ const ImageScrollBar = ({ data }) => (
     {/* <span> */}
     <Flex justify={"end"}>
       <Text as="cite" fontSize={"sm"} textAlign="end">
-        Powered by Varrus Services Media{" "}
+        Powered by Varrus Media{" "}
         <Button
           cursor="pointer"
           as="cite"
@@ -92,7 +92,7 @@ const ImageScrollBar = ({ data }) => (
           colorScheme={"blue"}
           size={"sm"}
         >
-          Learn more
+          Learn More
         </Button>
       </Text>
     </Flex>
