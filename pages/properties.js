@@ -18,6 +18,7 @@ import {
   limit,
   getDocs,
 } from "firebase/firestore";
+import PropertyV2 from "../components/PropertyV2";
 
 export default function Properties({ properties }) {
   const [searchFilters, setSearchFilters] = useState(false);
@@ -30,6 +31,9 @@ export default function Properties({ properties }) {
         bg="gray.300"
         borderBottom="1px"
         borderColor="gray.200"
+        borderWidth="1px"
+        rounded="lg"
+        shadow="lg"
         p="2"
         fontWeight="black"
         fontSize="large"

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import { Box, Flex, Text, Avatar, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Text, Avatar, Spacer, Image as ChakraImage } from "@chakra-ui/react";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
@@ -38,17 +38,21 @@ const Property = ({
         paddingTop="0"
         justifyContent="flex-start"
         cursor="pointer"
+        borderWidth="1px"
+        rounded="lg"
+        shadow="lg"
       >
         <Box>
-          <Image
+          <ChakraImage
             src={coverUrl}
             width={420}
             height={260}
             layout="intrinsic"
             alt="house"
+            roundedTop="lg" 
           />
         </Box>
-        <Box w="full">
+        <Box p="3" w="full">
           <Flex padding="1" alignItems="center" justifyContent="space-between">
             <Flex alignItems="center">
               <Box paddingRight="3" color="green.400">
@@ -79,7 +83,7 @@ const Property = ({
             <BsGridFill />
           </Flex>
           <Text fontSize="lg">
-            {title.length > 30 ? `${title.substring(0, 30)}...` : title}
+            {title && title.length > 30 ? `${title.substring(0, 30)}...` : title}
           </Text>
         </Box>
       </Flex>
