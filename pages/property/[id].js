@@ -69,20 +69,12 @@ const PropertyDetails = ({
         width="100%"
       >
         <SmoothLink to="content" smooth={true}>
-          <IconButton
+          <Button
+          color={"whiteAlpha.900"}
             colorScheme={"gray"}
-            aria-label="Search database"
-            isRound={true}
             variant="ghost"
-            icon={
-              <ChevronDownIcon
-                w={35}
-                h={35}
-                color="whiteAlpha.900"
-                _hover={{ color: "blackAlpha.900" }}
-              />
-            }
-          />
+            _hover={{ color: "blackAlpha.900" , background: "whiteAlpha.900"}}
+          >More Details</Button>
         </SmoothLink>
       </Flex>
       <Box
