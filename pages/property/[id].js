@@ -70,11 +70,14 @@ const PropertyDetails = ({
       >
         <SmoothLink to="content" smooth={true}>
           <Button
-          color={"whiteAlpha.900"}
-            colorScheme={"gray"}
+            color="whiteAlpha.900"
+            colorScheme="gray"
             variant="ghost"
-            _hover={{ color: "blackAlpha.900" , background: "whiteAlpha.900"}}
-          >More Details</Button>
+            background="blackAlpha.500"
+            _hover={{ color: "blackAlpha.900", background: "whiteAlpha.900" }}
+          >
+            More Details
+          </Button>
         </SmoothLink>
       </Flex>
       <Box
