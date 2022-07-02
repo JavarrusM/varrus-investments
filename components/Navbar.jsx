@@ -6,6 +6,7 @@ import { FiKey } from "react-icons/fi";
 import Image from "next/image";
 
 import VarrusLogoBlack from "../assets/images/varrus-logo-black.png";
+import VarrusFullLogoBlack from "../assets/images/varrus-full-logo-black.png";
 
 import {
   Box,
@@ -85,20 +86,27 @@ export default function Navbar() {
 
         <Stack
           flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
+          justify="flex-end"
+          direction="row"
           spacing={6}
         >
-          <Link href="/contact">
+          <Link
+            href="/contact"
+            _hover={{
+              textDecoration: "none",
+              // bg: "gray.400",
+            }}
+          >
             <Button
               display={{ md: "inline-flex" }}
               fontSize={"sm"}
               fontWeight={600}
-              color={"gray.400"}
-              bg={"black"}
+              color="white"
+              bg="black"
               // href={"/contact"}
               _hover={{
-                color: "gray.100",
+                textDecoration: "none",
+                bg: "gray.400",
               }}
             >
               Contact Us
