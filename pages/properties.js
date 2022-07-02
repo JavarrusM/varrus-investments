@@ -18,7 +18,6 @@ import {
   limit,
   getDocs,
 } from "firebase/firestore";
-import PropertyV2 from "../components/PropertyV2";
 
 export default function Properties({ properties }) {
   const [searchFilters, setSearchFilters] = useState(false);
