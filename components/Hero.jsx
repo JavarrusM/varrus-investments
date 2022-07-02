@@ -55,9 +55,11 @@ export default function Hero() {
           height="100vh"
           direction={{ base: "column", md: "row" }}
           width={{ base: "100%", md: "30%"  }}
+          justifyContent="center"
           // backgroundSize={"cover"}
           // backgroundPosition={"center center"}
           // backgroundImage={`url('${coverUrl}')`}
+          boxShadow={"3xl"}
         >
           <Stack
             opacity="0.7"
@@ -119,7 +121,7 @@ export default function Hero() {
                   textDecoration: "none",
                 }}
               >
-                SERVICES
+                EXPLORE
               </Button>
               <Button variant="link" colorScheme="blue" size="sm">
                 Learn more
