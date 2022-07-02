@@ -12,30 +12,21 @@ import {
   useColorModeValue,
   createIcon,
   Center,
+  useBreakpointValue,
+  Flex,
+  Image as ChakraImage,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
-import VarrusLogoWhite from "../assets/images/varrus-logo-white.png";
+import VarrusLogoBlack from "../assets/images/varrus-logo-black.png";
+import VarrusFullLogoBlack from "../assets/images/varrus-full-logo-black.png";
 // import HomePhoto from "../assets/images/home-photo.jpg";
 
 export default function Hero() {
-  // test
-  const [coverUrl, setCoverUrl] = useState(null);
-
-  const storage = getStorage();
-
-  // Create a reference under which you want to list
-  const coverRef = ref(storage, `home/home-photo.jpg`);
-
-  // const pathReference = ref(storage, 'images/stars.jpg');
-  useEffect(() => {
-    getDownloadURL(coverRef).then((url) => {
-      // Insert url into an <img> tag to "download"
-      setCoverUrl(url);
-    });
-  }, [coverRef]);
+  const coverUrl =
+    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fhome-photo.jpg?alt=media&token=e9381170-1949-48ca-b02f-b5a727948eb1";
 
   return (
     <>
@@ -45,98 +36,118 @@ export default function Hero() {
           rel="stylesheet"
         />
       </Head>
-
-      <Container
-        // background="rgba(0, 0, 0, 0.5)"
-        w={"100%"}
-        h={"90vh"}
-        maxWidth="none"
-        backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, .6)) , url('${coverUrl}')`}
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
-      >
+      <Flex justifyContent="center">
+        <Container
+          // background="rgba(0, 0, 0, 0.5)"
+          w={"100%"}
+          h={"100vh"}
+          maxWidth="none"
+          backgroundImage={` url('${coverUrl}')`}
+          backgroundSize={"cover"}
+          backgroundPosition={"center center"}
+          position="fixed"
+          zIndex="-1"
+          opacity="0.9"
+          top="0"
+        />
         <Stack
-          opacity="1"
-          as={Box}
-          textAlign={"center"}
-          spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}
+          // minH={"100vh"}
+          height="100vh"
+          direction={{ base: "column", md: "row" }}
+          width={{ base: "100%", md: "30%"  }}
+          // backgroundSize={"cover"}
+          // backgroundPosition={"center center"}
+          // backgroundImage={`url('${coverUrl}')`}
         >
-          <Heading
-            fontWeight={600}
-            fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
-            lineHeight={"110%"}
-            color={"white"}
-          >
-            <Image
-              src={VarrusLogoWhite}
-              alt="varrus hero logo white"
-              width={100}
-              height={100}
-            />
-            <br />
-            <Text as={"span"} color={"white"}>
-              VARRUS SERVICES
-            </Text>
-          </Heading>
-          <Center>
-            <Text
-              color={"white"}
-              width="xl"
-              textAlign={"center"}
-              marginInlineStart="auto"
-              marginInlineEnd="auto"
-            >
-              Varrus is striving to make transparent Dominican Republic services
-              by offering software for clients and working with verified
-              partners that have an accomplished track record. Originated in
-              Puerto Plata, with plans to expand country-wide.
-            </Text>
-          </Center>
           <Stack
-            direction={"column"}
-            spacing={3}
-            align={"center"}
-            alignSelf={"center"}
-            position={"relative"}
+            opacity="0.7"
+            as={Box}
+            textAlign={"center"}
+            spacing={{ base: 8, md: 14 }}
+            py={{ base: 20, md: 36 }}
+            w="100vw"
+            bg="white"
           >
-            <Button
-              colorScheme={"green"}
-              bg={"gray.400"}
-              rounded={"full"}
-              px={6}
-              _hover={{
-                bg: "gray.300",
-              }}
+            <Heading
+              fontWeight={600}
+              fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
+              lineHeight={"110%"}
+              color={"white"}
             >
-              SERVICES
-            </Button>
-            <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
-              Learn more
-            </Button>
-            <Box>
-              <Icon
-                as={Arrow}
-                color={useColorModeValue("gray.800", "gray.300")}
-                w={71}
-                position={"absolute"}
-                right={-71}
-                top={"10px"}
-              />
-              <Text
-                fontSize={"lg"}
-                fontFamily={"Caveat"}
-                position={"absolute"}
-                right={"-125px"}
-                top={"-15px"}
-                transform={"rotate(10deg)"}
-              >
-                Check out our services
+              <Text as={"span"} color={"black"}>
+                VARRUS
               </Text>
-            </Box>
+              <br />
+              <Image
+                src={VarrusFullLogoBlack}
+                alt="varrus hero logo black"
+                width={300}
+                height={100}
+              />
+            </Heading>
+            <Center>
+              <Text
+                color={"black"}
+                width="xl"
+                textAlign={"center"}
+                marginInlineStart="auto"
+                marginInlineEnd="auto"
+                p="10"
+                fontWeight={"600"}
+                fontSize="xl"
+              >
+                Varrus is striving to make transparent Dominican Republic
+                services by offering software for clients and working with
+                verified partners that have an accomplished track record.
+                Originated in Puerto Plata, with plans to expand country-wide.
+              </Text>
+            </Center>
+            <Stack
+              direction={"column"}
+              spacing={3}
+              align={"center"}
+              alignSelf={"center"}
+              position={"relative"}
+            >
+              <Button
+                colorScheme={"green"}
+                bg={"black"}
+                rounded={"full"}
+                px={6}
+                _hover={{
+                  bg: "gray.400",
+                  textDecoration: "none",
+                }}
+              >
+                SERVICES
+              </Button>
+              <Button variant="link" colorScheme="blue" size="sm">
+                Learn more
+              </Button>
+              <Box>
+                <Icon
+                  as={Arrow}
+                  color={useColorModeValue("gray.800", "gray.300")}
+                  w={71}
+                  position={"absolute"}
+                  right={-71}
+                  top={"10px"}
+                />
+                <Text
+                  fontSize={"lg"}
+                  fontFamily={"Caveat"}
+                  position={"absolute"}
+                  right={"-125px"}
+                  top={"-15px"}
+                  transform={"rotate(10deg)"}
+                >
+                  Check out our services
+                </Text>
+              </Box>
+            </Stack>
           </Stack>
         </Stack>
-      </Container>
+      </Flex>
     </>
   );
 }
