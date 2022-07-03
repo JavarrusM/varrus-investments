@@ -2,6 +2,7 @@
 import { FcMenu, FcHome, FcAbout } from "react-icons/fc";
 import { BsSearch } from "react-icons/bs";
 import { FiKey } from "react-icons/fi";
+import { Divider } from "@chakra-ui/react";
 
 import Image from "next/image";
 
@@ -82,7 +83,6 @@ export default function Navbar() {
               display="flex"
               alignItems="flex-end"
               gap="2"
-
             >
               <Image
                 src={VarrusLogoBlack}
@@ -90,7 +90,7 @@ export default function Navbar() {
                 width={25}
                 height={25}
               />
-               VARRUS
+              VARRUS
             </Link>
           </Text>
 
@@ -158,58 +158,72 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4} alignItems="center">
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
-          <Popover trigger={"hover"} placement={"bottom-start"}>
-            <PopoverTrigger>
-              <Link
-                p={2}
-                href={navItem.href ?? "#"}
-                fontSize={"lg"}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-              >
-                {navItem.label}
-              </Link>
-            </PopoverTrigger>
+        <>
+          <Divider
+            orientation="vertical"
+            borderWidth="1px"
+            borderColor="black"
+            shadow="lg"
+          />
+          <Box key={navItem.label}>
+            <Popover trigger={"hover"} placement={"bottom-start"}>
+              <PopoverTrigger>
+                <Link
+                  p={2}
+                  href={navItem.href ?? "#"}
+                  fontSize={"lg"}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: "none",
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.label}
+                </Link>
+              </PopoverTrigger>
 
-            {navItem.subLabel && (
-              <PopoverContent
-                border={0}
-                boxShadow={"xl"}
-                bg={popoverContentBgColor}
-                p={4}
-                rounded={"xl"}
-                minW={"sm"}
-              >
-                <Stack>
-                  <DesktopSubNav key={navItem} {...navItem} />
-                </Stack>
-              </PopoverContent>
-            )}
+              {navItem.subLabel && (
+                <PopoverContent
+                  border={0}
+                  boxShadow={"xl"}
+                  bg={popoverContentBgColor}
+                  p={4}
+                  rounded={"xl"}
+                  minW={"sm"}
+                >
+                  <Stack>
+                    <DesktopSubNav key={navItem} {...navItem} />
+                  </Stack>
+                </PopoverContent>
+              )}
 
-            {navItem.children && (
-              <PopoverContent
-                border={0}
-                boxShadow={"xl"}
-                bg={popoverContentBgColor}
-                p={4}
-                rounded={"xl"}
-                minW={"sm"}
-              >
-                <Stack>
-                  {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
-                  ))}
-                </Stack>
-              </PopoverContent>
-            )}
-          </Popover>
-        </Box>
+              {navItem.children && (
+                <PopoverContent
+                  border={0}
+                  boxShadow={"xl"}
+                  bg={popoverContentBgColor}
+                  p={4}
+                  rounded={"xl"}
+                  minW={"sm"}
+                >
+                  <Stack>
+                    {navItem.children.map((child) => (
+                      <DesktopSubNav key={child.label} {...child} />
+                    ))}
+                  </Stack>
+                </PopoverContent>
+              )}
+            </Popover>
+          </Box>
+        </>
       ))}
+      <Divider
+        orientation="vertical"
+        borderWidth="1px"
+        borderColor="black"
+        shadow="lg"
+      />
     </Stack>
   );
 };
