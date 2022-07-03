@@ -158,14 +158,15 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4} alignItems="center">
       {NAV_ITEMS.map((navItem) => (
-        <>
-          <Divider
+        <Box key={navItem.label}>
+          {/* <Divider
             orientation="vertical"
             borderWidth="1px"
             borderColor="black"
             shadow="lg"
-          />
-          <Box key={navItem.label}>
+            key={`${navItem.label}` + "divider"}
+          /> */}
+          <Box>
             <Popover trigger={"hover"} placement={"bottom-start"}>
               <PopoverTrigger>
                 <Link
@@ -216,14 +217,14 @@ const DesktopNav = () => {
               )}
             </Popover>
           </Box>
-        </>
+        </Box>
       ))}
-      <Divider
+      {/* <Divider
         orientation="vertical"
         borderWidth="1px"
         borderColor="black"
         shadow="lg"
-      />
+      /> */}
     </Stack>
   );
 };
