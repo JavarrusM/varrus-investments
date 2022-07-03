@@ -36,7 +36,7 @@ export default function Hero() {
           rel="stylesheet"
         />
       </Head>
-      <Flex justifyContent="center">
+      <Flex justifyContent="center" overflow="hidden">
         <Container
           // background="rgba(0, 0, 0, 0.5)"
           w={"100%"}
@@ -51,17 +51,14 @@ export default function Hero() {
           top="0"
         />
         <Stack
-          // minH={"100vh"}
           height="100vh"
           direction={{ base: "column", md: "row" }}
-          width={{ base: "100%", md: "30%"  }}
+          width={{ base: "100%", md: "30%" }}
           justifyContent="center"
-          // backgroundSize={"cover"}
-          // backgroundPosition={"center center"}
-          // backgroundImage={`url('${coverUrl}')`}
           boxShadow={"3xl"}
         >
           <Stack
+            height="100%"
             opacity="0.7"
             as={Box}
             textAlign={"center"}
@@ -85,6 +82,8 @@ export default function Hero() {
                 alt="varrus hero logo black"
                 width={300}
                 height={100}
+                // width={{ base: 100, md: 300}}
+                // height={{ base: 25, md:100}}
               />
             </Heading>
             <Center>
@@ -96,7 +95,8 @@ export default function Hero() {
                 marginInlineEnd="auto"
                 p="10"
                 fontWeight={"600"}
-                fontSize="xl"
+                // fontSize="xl"
+                fontSize={{ base: "sm", md: "xl"}}
               >
                 Varrus is striving to make transparent Dominican Republic
                 services by offering software for clients and working with
@@ -126,7 +126,7 @@ export default function Hero() {
               <Button variant="link" colorScheme="blue" size="sm">
                 Learn more
               </Button>
-              <Box>
+              <Box display={{base: "none", sm:"block"}}>
                 <Icon
                   as={Arrow}
                   color={useColorModeValue("gray.800", "gray.300")}
@@ -143,7 +143,7 @@ export default function Hero() {
                   top={"-15px"}
                   transform={"rotate(10deg)"}
                 >
-                  Check out our services
+                  Explore our services
                 </Text>
               </Box>
             </Stack>
