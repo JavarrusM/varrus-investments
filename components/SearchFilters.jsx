@@ -35,7 +35,7 @@ const SearchFilters = () => {
   };
 
   return (
-    <Flex bg="gray.100" p="4" justifyContent="center" flexWrap="wrap">
+    <Flex bg="gray.100" p="4" justifyContent="center" flexWrap="wrap" boxShadow="lg">
       {filters.map((filter) => (
         <Box key={filter.queryName}>
           <Select
