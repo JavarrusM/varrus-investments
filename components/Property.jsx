@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import { Box, Flex, Text, Avatar, Spacer, Image as ChakraImage } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text,
+  Avatar,
+  Spacer,
+  Image as ChakraImage,
+} from "@chakra-ui/react";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
@@ -33,7 +40,7 @@ const Property = ({
     <Link href={`/property/${name}`} passHref>
       <Flex
         flexWrap="wrap"
-        w="420px"
+        w={{ base: "100%", lg: "420px" }}
         p="S"
         paddingTop="0"
         justifyContent="flex-start"
@@ -45,11 +52,11 @@ const Property = ({
         <Box>
           <ChakraImage
             src={coverUrl}
-            width={420}
-            height={260}
+            width={{ base: "100%", lg: 420 }}
+            height={{ lg: 260 }}
             layout="intrinsic"
             alt="house"
-            roundedTop="lg" 
+            roundedTop="lg"
           />
         </Box>
         <Box p="3" w="full">
@@ -75,15 +82,18 @@ const Property = ({
           <Flex
             alignItems="center"
             p="1"
-            justifyContent="space-between"
+            gap="2"
+            justifyContent="start"
             w="250px"
             color="blue.400"
           >
-            {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqm{" "}
-            <BsGridFill />
+            {rooms ? rooms : "-"} <FaBed /> | {baths ? baths : "-"} <FaBath /> |{" "}
+            {millify(area)} sqm <BsGridFill />
           </Flex>
           <Text fontSize="lg">
-            {title && title.length > 30 ? `${title.substring(0, 30)}...` : title}
+            {title && title.length > 30
+              ? `${title.substring(0, 30)}...`
+              : title}
           </Text>
         </Box>
       </Flex>
