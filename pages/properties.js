@@ -75,26 +75,34 @@ export async function getServerSideProps({ query }) {
   const properties = [];
   const constraints = [];
 
-  const purpose = query.purpose || "all";
-  const rentFrequency = query.rentFrequency || "yearly";
-  const minPrice = query.minPrice || "0";
+  const purpose = query.purpose || "any";
+  // const rentFrequency = query.rentFrequency || "yearly";
+  const minPrice = query.minPrice || 0;
   const maxPrice = query.maxPrice || "1000000";
-  const roomsMin = query.roomsMin || "0";
-  const bathsMin = query.bathsMin || "0";
+  const roomsMin = query.roomsMin || 0;
+  const bathsMin = query.bathsMin || 0;
   const sort = query.sort || "price-desc";
-  const areaMax = query.areaMax || "35000";
+  const areaMax = query.areaMax || 35000;
   const locationExternalIDs = query.locationExternalIDs || "5002";
-  const categoryExternalID = query.categoryExternalID || "4";
+  const type = query.type || "any";
 
-  if (purpose != "all") constraints.push(where("purpose", "==", purpose));
+  if (purpose != "any") constraints.push(where("purpose", "==", purpose));
+  if (type != "any") constraints.push(where("type", "==", type));
+
+
 
   const q = firebaseQuery(collection(db, "properties"), ...constraints);
 
   const docs = await getDocs(q);
 
-  docs.forEach((doc) => {
+  for (const doc of docs.docs) {
+  // docs.forEach((doc) => {
+    if (doc.data().baths < Number(bathsMin) && type !== "land") continue
+    if (doc.data().rooms < Number(roomsMin) && type !== "land") continue
+
     properties.push(doc.data());
-  });
+  // });
+  }
 
   return {
     props: {
