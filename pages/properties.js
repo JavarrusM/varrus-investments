@@ -17,6 +17,7 @@ import {
   query as firebaseQuery,
   limit,
   getDocs,
+  orderBy,
 } from "firebase/firestore";
 
 export default function Properties({ properties }) {
@@ -78,30 +79,44 @@ export async function getServerSideProps({ query }) {
   const purpose = query.purpose || "any";
   // const rentFrequency = query.rentFrequency || "yearly";
   const minPrice = query.minPrice || 0;
-  const maxPrice = query.maxPrice || "1000000";
+  const maxPrice = query.maxPrice || "none";
   const roomsMin = query.roomsMin || 0;
   const bathsMin = query.bathsMin || 0;
-  const sort = query.sort || "price-desc";
+  const sort =
+    query.sort && query.sort !== "none" ? query.sort.split("-") : "none";
   const areaMax = query.areaMax || 35000;
   const locationExternalIDs = query.locationExternalIDs || "5002";
   const type = query.type || "any";
+  const isVerified = query.isVerified || "any";
+  const furnishingStatus = query.furnishingStatus || "any";
 
-  if (purpose != "any") constraints.push(where("purpose", "==", purpose));
-  if (type != "any") constraints.push(where("type", "==", type));
-
-
+  if (sort != "none") constraints.push(orderBy(sort[0], sort[1]));
 
   const q = firebaseQuery(collection(db, "properties"), ...constraints);
 
   const docs = await getDocs(q);
 
   for (const doc of docs.docs) {
-  // docs.forEach((doc) => {
-    if (doc.data().baths < Number(bathsMin) && type !== "land") continue
-    if (doc.data().rooms < Number(roomsMin) && type !== "land") continue
+    // docs.forEach((doc) => {
+    if (doc.data().baths < Number(bathsMin) && type !== "land") continue;
+    if (doc.data().rooms < Number(roomsMin) && type !== "land") continue;
+    if (doc.data().price < Number(minPrice)) continue;
+    if (maxPrice !== "none" && doc.data().price > Number(maxPrice)) continue;
+
+    if (purpose != "any" && doc.data().purpose !== purpose) continue;
+    if (type != "any" && doc.data().type !== type) continue;
+    if (
+      isVerified != "any" &&
+      doc.data().isVerified !== (isVerified == "true" ? true : false)
+    )
+      continue;
+    if (
+      furnishingStatus != "any" &&
+      doc.data().furnishingStatus !== furnishingStatus
+    )
+      continue;
 
     properties.push(doc.data());
-  // });
   }
 
   return {
