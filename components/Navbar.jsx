@@ -32,9 +32,17 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { useState } from "react";
+import ContactDrawer from "./Contact/ContactDrawer";
 
 export default function Navbar() {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+
+  const [ contactDrawerToggle, setContactDrawerToggle ] = useState(false);
+
+  const handleContactDrawerToggle = () => {
+    setContactDrawerToggle((prev) => !prev)
+  }
 
   return (
     <Box>
@@ -105,28 +113,29 @@ export default function Navbar() {
           direction="row"
           spacing={6}
         >
-          <Link
+          {/* <Link
             href="/contact"
             _hover={{
               textDecoration: "none",
               // bg: "gray.400",
+            }} 
+          >*/}
+          <Button
+            display={{ md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color="white"
+            bg="black"
+            onClick={handleContactDrawerToggle}
+            _hover={{
+              textDecoration: "none",
+              bg: "gray.400",
             }}
           >
-            <Button
-              display={{ md: "inline-flex" }}
-              fontSize={"sm"}
-              fontWeight={600}
-              color="white"
-              bg="black"
-              // href={"/contact"}
-              _hover={{
-                textDecoration: "none",
-                bg: "gray.400",
-              }}
-            >
-              Contact Us
-            </Button>
-          </Link>
+            Contact Us
+          </Button>
+          <ContactDrawer contactDrawerToggle={contactDrawerToggle} handleContactDrawerToggle={handleContactDrawerToggle} />
+          {/* </Link> */}
           {/* <Button
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}

@@ -27,6 +27,7 @@ import {
 } from "react-icons/md";
 import { BsWhatsapp, BsPerson, BsYoutube } from "react-icons/bs";
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import { Link } from "@chakra-ui/react";
 
 export default function Contact() {
   // test
@@ -49,11 +50,11 @@ export default function Contact() {
       backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, .6)) , url('${coverUrl}')`}
       backgroundSize={"cover"}
       backgroundPosition={"center center"}
-      height="90vh"
+      // height="90vh"
       maxW="full"
       mt={0}
       centerContent
-      overflow="hidden"
+      // overflow="hidden"
     >
       <Flex>
         <Box
@@ -84,17 +85,17 @@ export default function Contact() {
                       >
                         +1-859-488-6846
                       </Button>
-                      {/* <Button
+                      <Button
                         size="md"
                         height="48px"
                         width="200px"
                         variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: "2px solid #1C6FEB" }}
-                        leftIcon={<MdEmail color="#1970F1" size="20px" />}
+                        color="black"
+                        _hover={{ border: "2px solid black" }}
+                        leftIcon={<MdEmail color="black" size="20px" />}
                       >
-                        hello@abc.com
-                      </Button> */}
+                        admin@varrus.net
+                      </Button>
                       <Button
                         size="md"
                         height="48px"
@@ -114,14 +115,19 @@ export default function Contact() {
                     px={5}
                     alignItems="flex-start"
                   >
-                    <IconButton
-                      aria-label="facebook"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: "#4267B2" }}
-                      icon={<MdFacebook size="28px" />}
-                    />
+                    <Link
+                      href="https://www.facebook.com/VarrusLLC/"
+                      target="_blank"
+                    >
+                      <IconButton
+                        aria-label="facebook"
+                        variant="ghost"
+                        size="lg"
+                        isRound={true}
+                        _hover={{ bg: "#4267B2" }}
+                        icon={<MdFacebook size="28px" />}
+                      />
+                    </Link>
                     <IconButton
                       aria-label="whatsapp"
                       variant="ghost"
@@ -130,14 +136,19 @@ export default function Contact() {
                       _hover={{ bg: "#25D366" }}
                       icon={<BsWhatsapp size="28px" />}
                     />
-                    <IconButton
-                      aria-label="youtube"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: "#FF0000" }}
-                      icon={<BsYoutube size="28px" />}
-                    />
+                    <Link
+                      href="https://www.youtube.com/channel/UCXTZn7iWFcGAkAc3zuoVH0A"
+                      target="_blank"
+                    >
+                      <IconButton
+                        aria-label="youtube"
+                        variant="ghost"
+                        size="lg"
+                        isRound={true}
+                        _hover={{ bg: "#FF0000" }}
+                        icon={<BsYoutube size="28px" />}
+                      />
+                    </Link>
                   </HStack>
                 </Box>
               </WrapItem>
@@ -176,9 +187,9 @@ export default function Contact() {
                       <FormControl id="name" float="right">
                         <Button
                           variant="solid"
-                          bg="gray.400"
+                          bg="black"
                           color="white"
-                          _hover={{color: "black"}}
+                          _hover={{ color: "gray.400" }}
                         >
                           Send Message
                         </Button>
