@@ -7,12 +7,12 @@ import Footer from "./Footer";
 const Layout = ({ children }) => (
   <>
     <Head>
-      <title>Varrus</title>
+      <title>Varrus LLC</title>
     </Head>
     <nav>
       <Navbar />
     </nav>
-    <Box height="90vh" minHeight="fit-content"  m="auto">{children}</Box>
+    <Box height="fit-content" minHeight="90vh"  m="auto">{children}</Box>
     <footer>
       <Footer />
     </footer>
