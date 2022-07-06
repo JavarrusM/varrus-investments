@@ -36,7 +36,7 @@ export default function Hero() {
           rel="stylesheet"
         />
       </Head>
-      <Flex justifyContent="center" overflow="hidden">
+      <Flex justifyContent="center" overflowX="hidden" overflowY="scroll">
         <Container
           // background="rgba(0, 0, 0, 0.5)"
           w={"100%"}
@@ -58,7 +58,7 @@ export default function Hero() {
           boxShadow={"3xl"}
         >
           <Stack
-            height="100%"
+            height="fit-content"
             opacity="0.7"
             as={Box}
             textAlign={"center"}
@@ -93,10 +93,10 @@ export default function Hero() {
                 textAlign={"center"}
                 marginInlineStart="auto"
                 marginInlineEnd="auto"
-                p="10"
+                p={{ base: 1, md: 5 }}
                 fontWeight={"600"}
                 // fontSize="xl"
-                fontSize={{ base: "sm", md: "xl"}}
+                fontSize={{ base: "sm", md: "xl" }}
               >
                 Varrus is striving to make transparent Dominican Republic
                 services by offering software for clients and working with
@@ -126,7 +126,7 @@ export default function Hero() {
               <Button variant="link" colorScheme="blue" size="sm">
                 Learn more
               </Button>
-              <Box display={{base: "none", sm:"block"}}>
+              <Box display={{ base: "none", sm: "block" }}>
                 <Icon
                   as={Arrow}
                   color={useColorModeValue("gray.800", "gray.300")}
