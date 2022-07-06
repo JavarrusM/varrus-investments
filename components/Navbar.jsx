@@ -352,80 +352,80 @@ const NAV_ITEMS = [
         subLabel: "Buy a home or invest",
         href: "/properties?purpose=buying",
       },
-      {
-        label: "Selling",
-        subLabel: "Sell land and/or houses",
-        href: "/selling",
-      },
+      // {
+      //   label: "Selling",
+      //   subLabel: "Sell land and/or houses",
+      //   href: "/selling",
+      // },
       {
         label: "Renting",
         subLabel: "Explore our rental offerings",
         href: "/properties?purpose=renting",
       },
-      {
-        label: "Leasing",
-        subLabel: "Lease with our property management team",
-        href: "/leasing",
-      },
+      // {
+      //   label: "Leasing",
+      //   subLabel: "Lease with our property management team",
+      //   href: "/leasing",
+      // },
     ],
   },
-  {
-    label: "Media",
-    href: "/media",
-    children: [
-      {
-        label: "Virtual",
-        subLabel: "3D real estate tours, pictures and hosting services",
-        href: "/media?purpose=virtual-tour",
-      },
-      {
-        label: "Drone",
-        subLabel: "Drone real estate photo and video services",
-        href: "/media?purpose=drone-photos",
-      },
-    ],
-  },
-  {
-    label: "Maintenance",
-    href: "/maintenance",
-    children: [
-      {
-        label: "House Repairs",
-        subLabel: "Find the highest quality services and people for you work",
-        href: "/maintenance?purpose=repairs",
-      },
-    ],
-  },
-  {
-    label: "Construction",
-    href: "/construction",
-    children: [
-      {
-        label: "General Construction",
-        subLabel: "Build housing at affordable prices",
-        href: "/maintenance?purpose=management",
-      },
-      {
-        label: "Refurbishing",
-        subLabel: "Restoring properties to their former glory",
-        href: "/maintenance?purpose=repairs",
-      },
-    ],
-  },
-  {
-    label: "Lending",
-    href: "/lending",
-    children: [
-      {
-        label: "Personal Loans",
-        subLabel: "Explore your personal loan options",
-        href: "/lending?purpose=personal",
-      },
-      {
-        label: "Mortgage Loans",
-        subLabel: "Expore your mortgage loan options",
-        href: "/lending?purpose=mortgage",
-      },
-    ],
-  },
+  // {
+  //   label: "Media",
+  //   href: "/media",
+  //   children: [
+  //     {
+  //       label: "Virtual",
+  //       subLabel: "3D real estate tours, pictures and hosting services",
+  //       href: "/media?purpose=virtual-tour",
+  //     },
+  //     {
+  //       label: "Drone",
+  //       subLabel: "Drone real estate photo and video services",
+  //       href: "/media?purpose=drone-photos",
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: "Maintenance",
+  //   href: "/maintenance",
+  //   children: [
+  //     {
+  //       label: "House Repairs",
+  //       subLabel: "Find the highest quality services and people for you work",
+  //       href: "/maintenance?purpose=repairs",
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: "Construction",
+  //   href: "/construction",
+  //   children: [
+  //     {
+  //       label: "General Construction",
+  //       subLabel: "Build housing at affordable prices",
+  //       href: "/maintenance?purpose=management",
+  //     },
+  //     {
+  //       label: "Refurbishing",
+  //       subLabel: "Restoring properties to their former glory",
+  //       href: "/maintenance?purpose=repairs",
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: "Lending",
+  //   href: "/lending",
+  //   children: [
+  //     {
+  //       label: "Personal Loans",
+  //       subLabel: "Explore your personal loan options",
+  //       href: "/lending?purpose=personal",
+  //     },
+  //     {
+  //       label: "Mortgage Loans",
+  //       subLabel: "Expore your mortgage loan options",
+  //       href: "/lending?purpose=mortgage",
+  //     },
+  //   ],
+  // },
 ];
