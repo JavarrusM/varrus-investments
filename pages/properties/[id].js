@@ -37,6 +37,7 @@ import {
 import { Link as SmoothLink } from "react-scroll";
 
 import ImageScrollBar from "../../components/ImageScrollBar";
+import ContactModal from "../../components/Contact/ContactModal";
 
 const PropertyDetails = ({
   propertyDetails: {
@@ -58,6 +59,12 @@ const PropertyDetails = ({
     documents,
   },
 }) => {
+  const [contactModalToggle, setContactModalToggle] = useState(false);
+
+  const handleContactModalToggle = () => {
+    setContactModalToggle((prev) => !prev);
+  };
+
   return (
     <>
       {media && <ImageScrollBar data={media} />}
@@ -110,25 +117,46 @@ const PropertyDetails = ({
               </Text>
             </Flex>
             <Flex flexDirection={"row"} alignItems="center" gap={2}>
-              <Text fontWeight={"bold"}>Contact: {"+1-859-488-6846"}</Text>
-              <Image
-                size="sm"
-                src={VarrusLogoBlack}
-                alt="agency icons"
-                width={25}
-                height={25}
+              <Button
+                fontWeight={"bold"}
+                display="flex"
+                alignItems="center"
+                gap="2"
+                onClick={handleContactModalToggle}
+              >
+                Contact: {"+1-859-488-6846"}
+                <Image
+                  size="sm"
+                  src={VarrusLogoBlack}
+                  alt="agency icons"
+                  width={25}
+                  height={25}
+                />
+              </Button>
+              <ContactModal
+                handleContactModalToggle={handleContactModalToggle}
+                contactModalToggle={contactModalToggle}
               />
             </Flex>
           </Flex>
           <Flex
             alignItems="center"
-            p="1"
+            // p="1"
             justifyContent="space-between"
-            w="250px"
+            w="200px"
             color="blue.400"
           >
-            {rooms ? rooms : "-"} <FaBed /> | {baths ? baths : "-"} <FaBath /> |{" "}
-            {millify(area)} sqm <BsGridFill />
+            <Flex alignItems="center" flexDir="row" gap="1">
+              {rooms ? rooms : "-"} <FaBed />
+            </Flex>{" "}
+            |{" "}
+            <Flex alignItems="center" flexDir="row" gap="1">
+              {baths ? baths : "-"} <FaBath />
+            </Flex>{" "}
+            |{" "}
+            <Flex alignItems="center" flexDir="row" gap="1">
+              {millify(area)} sqm <BsGridFill />
+            </Flex>
           </Flex>
           <Box marginTop="2">
             <Text fontSize="lg" marginBottom="2" fontWeight="bold">
@@ -187,30 +215,31 @@ const PropertyDetails = ({
             </Flex>
           </Flex>
           <Box>
-            {amenities.length && (
+            {amenities.length > 0 && (
               <Text fontSize="2xl" fontWeight="black" marginTop="5">
                 Amenities
               </Text>
             )}
             <Flex flexWrap="wrap">
-              {amenities.map((amenity) => (
-                <Text
-                  fontWeight="bold"
-                  color="blue.400"
-                  fontSize="l"
-                  p="2"
-                  bg="gray.200"
-                  m="1"
-                  borderRadius="5"
-                  key={amenity.name}
-                >
-                  {amenity.link ? (
-                    <Link href={amenity.link}>{amenity.name}</Link>
-                  ) : (
-                    amenity.name
-                  )}
-                </Text>
-              ))}
+              {amenities.length > 0 &&
+                amenities.map((amenity) => (
+                  <Text
+                    fontWeight="bold"
+                    color="blue.400"
+                    fontSize="l"
+                    p="2"
+                    bg="gray.200"
+                    m="1"
+                    borderRadius="5"
+                    key={amenity.name}
+                  >
+                    {amenity.link ? (
+                      <Link href={amenity.link}>{amenity.name}</Link>
+                    ) : (
+                      amenity.name
+                    )}
+                  </Text>
+                ))}
             </Flex>
           </Box>
         </Box>

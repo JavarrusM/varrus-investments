@@ -37,7 +37,7 @@ const Property = ({
   const storage = getStorage();
 
   return (
-    <Link href={`/property/${name}`} passHref>
+    <Link href={`/properties/${name}`} passHref>
       <Flex
         flexWrap="wrap"
         w={{ base: "100%", lg: "420px" }}
@@ -81,14 +81,22 @@ const Property = ({
           </Flex>
           <Flex
             alignItems="center"
-            p="1"
-            gap="2"
-            justifyContent="start"
-            w="250px"
+            // p="1"
+            justifyContent="space-between"
+            w="200px"
             color="blue.400"
           >
-            {rooms ? rooms : "-"} <FaBed /> | {baths ? baths : "-"} <FaBath /> |{" "}
-            {millify(area)} sqm <BsGridFill />
+            <Flex alignItems="center" flexDir="row" gap="1">
+              {rooms ? rooms : "-"} <FaBed />
+            </Flex>{" "}
+            |{" "}
+            <Flex alignItems="center" flexDir="row" gap="1">
+              {baths ? baths : "-"} <FaBath />
+            </Flex>{" "}
+            |{" "}
+            <Flex alignItems="center" flexDir="row" gap="1">
+              {millify(area)} sqm <BsGridFill />
+            </Flex>
           </Flex>
           <Text fontSize="lg">
             {title && title.length > 30
