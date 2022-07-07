@@ -37,7 +37,7 @@ import {
 import { Link as SmoothLink } from "react-scroll";
 
 import ImageScrollBar from "../../components/ImageScrollBar";
-import ContactModal from "../../components/Contact/ContactModal";
+import { ContactModal } from "../../components/Contact";
 
 const PropertyDetails = ({
   propertyDetails: {

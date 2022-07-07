@@ -16,6 +16,7 @@ import {
   Box,
   Heading,
   Text,
+  Icon,
   IconButton,
   VStack,
   HStack,
@@ -31,6 +32,7 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  InputRightElement,
 } from "@chakra-ui/react";
 import {
   MdPhone,
@@ -40,11 +42,59 @@ import {
   MdOutlineEmail,
 } from "react-icons/md";
 import { BsWhatsapp, BsPerson, BsYoutube } from "react-icons/bs";
+import { send } from "emailjs-com";
+import { CheckIcon } from "@chakra-ui/icons";
 
 function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
   const btnRef = useRef();
   const [isWhatsappCopied, setIsWhatsappCopied] = useState(false);
   const [isEmailCopied, setIsEmailCopied] = useState(false);
+  const [toSend, setToSend] = useState({
+    from_name: "",
+    message: "",
+    reply_to: "",
+  });
+  const [messageStatus, setMessageStatus] = useState("Send Message");
+  const [sendColorStatus, setSendColorStatus] = useState("black");
+  const [isSending, setIsSending] = useState(false);
+
+  const emailReg = /\S+@\S+\.\S+/;
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    send("service_6j3sl5k", "template_qtnso49", toSend, "wxUZJwJFUvuLL3o3M")
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setMessageStatus("SENT");
+        setSendColorStatus("green");
+        setTimeout(() => {
+          setSendColorStatus("black");
+          setMessageStatus("Send Messenge");
+          setToSend({
+            from_name: "",
+            message: "",
+            reply_to: "",
+          });
+        }, 1500);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+        setMessageStatus("FAILED");
+        setSendColorStatus("red");
+        setTimeout(() => {
+          setMessageStatus("Send Message");
+        }, 1500);
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
+
+  const handleChange = (e) => {
+    console.log(e);
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
 
   async function copyContact(content) {
     if ("clipboard" in navigator) {
@@ -79,6 +129,7 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
         placement="right"
         onClose={handleContactDrawerToggle}
         finalFocusRef={btnRef}
+        size="md"
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -96,7 +147,7 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
                       width="200px"
                       variant="ghost"
                       color="black"
-                      _hover={{ border: "2px solid black" }}
+                      _hover={{ border: "2px solid black", bg: "#25D366" }}
                       leftIcon={<BsWhatsapp color="black" size="20px" />}
                       onClick={handleWhatsappCopyClick}
                     >
@@ -110,7 +161,7 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
                       width="200px"
                       variant="ghost"
                       color="black"
-                      _hover={{ border: "2px solid black" }}
+                      _hover={{ border: "2px solid black", bg: "#FBBC05" }}
                       leftIcon={<MdEmail color="black" size="20px" />}
                       onClick={handleEmailCopyClick}
                     >
@@ -178,37 +229,47 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
                     <Text mt={{ sm: 2, md: 2, lg: 3 }} color="black">
                       Leave a message below
                     </Text>
-                    <FormControl id="name">
+                    <FormControl isRequired id="name">
                       <FormLabel>Name</FormLabel>
                       <InputGroup borderColor="#E0E1E7">
                         <InputLeftElement pointerEvents="none">
                           <BsPerson color="gray.800" />
                         </InputLeftElement>
-                        <Input type="text" size="md" placeholder="Full Name" />
+                        <Input
+                          type="text"
+                          size="md"
+                          placeholder="Your Full Name"
+                          value={toSend.from_name}
+                          name="from_name"
+                          onChange={handleChange}
+                        />
+                        {toSend.from_name.length > 0 && (
+                          <InputRightElement>
+                            <CheckIcon color="green.500" />
+                          </InputRightElement>
+                        )}
                       </InputGroup>
                     </FormControl>
-                    <FormControl id="contact">
+                    <FormControl id="contact" isRequired>
                       <FormLabel>Contact</FormLabel>
                       <Tabs variant="soft-rounded" colorScheme="blackAlpha">
                         <TabList>
                           <Tab>
-                            <IconButton
+                            <Icon
                               aria-label="email"
                               variant="ghost"
-                              size="lg"
-                              isRound={true}
-                              _hover={{ bg: "#FBBC05" }}
-                              icon={<MdEmail size="20px" />}
+                              // size="lg"
+                              // isRound={true
+                              as={MdEmail}
                             />
                           </Tab>
                           <Tab>
-                            <IconButton
+                            <Icon
                               aria-label="whatsapp"
                               variant="ghost"
-                              size="lg"
-                              isRound={true}
-                              _hover={{ bg: "#25D366" }}
-                              icon={<BsWhatsapp size="20px" />}
+                              // size="lg"
+                              // isRound={true}
+                              as={BsWhatsapp}
                             />
                           </Tab>
                         </TabList>
@@ -224,8 +285,16 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
                               <Input
                                 type="email"
                                 size="lg"
-                                placeholder="Email Address"
+                                placeholder="Your Email Address"
+                                name="reply_to"
+                                value={toSend.reply_to}
+                                onChange={handleChange}
                               />
+                              {emailReg.test(toSend.reply_to) && (
+                                <InputRightElement>
+                                  <CheckIcon color="green.500" />
+                                </InputRightElement>
+                              )}
                             </InputGroup>
                           </TabPanel>
                           <TabPanel p={0}>
@@ -236,14 +305,22 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
                               <Input
                                 type="tel"
                                 size="lg"
-                                placeholder="Whatsapp Number"
+                                placeholder="Your Whatsapp Number"
+                                name="reply_to"
+                                value={toSend.reply_to}
+                                onChange={handleChange}
                               />
+                              {toSend.reply_to.length >= 7 && (
+                                <InputRightElement>
+                                  <CheckIcon color="green.500" />
+                                </InputRightElement>
+                              )}
                             </InputGroup>
                           </TabPanel>
                         </TabPanels>
                       </Tabs>
                     </FormControl>
-                    <FormControl id="message">
+                    <FormControl id="message" isRequired>
                       <FormLabel>Message</FormLabel>
                       <Textarea
                         borderColor="gray.400"
@@ -251,6 +328,9 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
                           borderRadius: "gray.400",
                         }}
                         placeholder="Message"
+                        value={toSend.message}
+                        name="message"
+                        onChange={handleChange}
                       />
                     </FormControl>
                   </VStack>
@@ -269,11 +349,13 @@ function ContactDrawer({ handleContactDrawerToggle, contactDrawerToggle }) {
             </Button>
             <Button
               variant="solid"
-              bg="black"
+              bg={sendColorStatus}
               color="white"
               _hover={{ color: "gray.400" }}
+              isLoading={isSending}
+              onClick={onSubmit}
             >
-              Send Message
+              {messageStatus}
             </Button>
           </DrawerFooter>
         </DrawerContent>

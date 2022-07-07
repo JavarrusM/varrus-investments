@@ -36,7 +36,7 @@ export default function Hero() {
           rel="stylesheet"
         />
       </Head>
-      <Flex justifyContent="center" overflowX="hidden" overflowY="scroll">
+      <Flex justifyContent="center" overflowX="hidden" overflowY="auto">
         <Container
           // background="rgba(0, 0, 0, 0.5)"
           w={"100%"}

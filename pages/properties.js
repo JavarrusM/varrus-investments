@@ -25,7 +25,7 @@ export default function Properties({ properties }) {
   const router = useRouter();
 
   return (
-    <Box height="fit-content" overflowY="hidden" overflowX="scroll">
+    <Box height="fit-content" overflowY="auto" overflowX="hidden">
       <Flex
         cursor="pointer"
         bg="gray.300"

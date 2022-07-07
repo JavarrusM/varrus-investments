@@ -38,11 +38,11 @@ import ContactDrawer from "./Contact/ContactDrawer";
 export default function Navbar() {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
-  const [ contactDrawerToggle, setContactDrawerToggle ] = useState(false);
+  const [contactDrawerToggle, setContactDrawerToggle] = useState(false);
 
   const handleContactDrawerToggle = () => {
-    setContactDrawerToggle((prev) => !prev)
-  }
+    setContactDrawerToggle((prev) => !prev);
+  };
 
   return (
     <Box>
@@ -134,7 +134,10 @@ export default function Navbar() {
           >
             Contact Us
           </Button>
-          <ContactDrawer contactDrawerToggle={contactDrawerToggle} handleContactDrawerToggle={handleContactDrawerToggle} />
+          <ContactDrawer
+            contactDrawerToggle={contactDrawerToggle}
+            handleContactDrawerToggle={handleContactDrawerToggle}
+          />
           {/* </Link> */}
           {/* <Button
             display={{ base: "none", md: "inline-flex" }}
