@@ -355,11 +355,11 @@ const NAV_ITEMS = [
         subLabel: "Buy a home or invest",
         href: "/properties?purpose=buying",
       },
-      // {
-      //   label: "Selling",
-      //   subLabel: "Sell land and/or houses",
-      //   href: "/selling",
-      // },
+      {
+        label: "Selling",
+        subLabel: "Sell land and/or houses",
+        href: "/selling",
+      },
       {
         label: "Renting",
         subLabel: "Explore our rental offerings",

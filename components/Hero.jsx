@@ -15,6 +15,7 @@ import {
   useBreakpointValue,
   Flex,
   Image as ChakraImage,
+  Link,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -114,18 +115,20 @@ export default function Hero() {
               alignSelf={"center"}
               position={"relative"}
             >
-              <Button
-                colorScheme={"green"}
-                bg={"black"}
-                rounded={"full"}
-                px={6}
-                _hover={{
-                  bg: "gray.400",
-                  textDecoration: "none",
-                }}
-              >
-                EXPLORE
-              </Button>
+              <Link href="/properties">
+                <Button
+                  colorScheme={"green"}
+                  bg={"black"}
+                  rounded={"full"}
+                  px={6}
+                  _hover={{
+                    bg: "gray.400",
+                    textDecoration: "none",
+                  }}
+                >
+                  Properties
+                </Button>
+              </Link>
               <Button variant="link" colorScheme="blue" size="sm">
                 Learn more
               </Button>
