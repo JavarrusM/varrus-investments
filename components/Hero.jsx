@@ -26,7 +26,8 @@ import VarrusFullLogoBlack from "../assets/images/varrus-full-logo-black.png";
 
 export default function Hero() {
   const coverUrl =
-    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fhome-photo.jpg?alt=media&token=e9381170-1949-48ca-b02f-b5a727948eb1";
+    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fhero-image.png?alt=media&token=99e29bad-17e2-4370-8be4-0310a53fc37f";
+  // "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fhome-photo.jpg?alt=media&token=e9381170-1949-48ca-b02f-b5a727948eb1";
 
   return (
     <>
