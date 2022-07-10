@@ -44,7 +44,7 @@ const features = [
 
 export default function GridListWithHeading() {
   const varrusPropertiesLogoLink =
-    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fvarrus-properties-full-logo-black-bg-banner.png?alt=media&token=df95b60c-9a13-4e5f-8305-4337fe01168a";
+    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fvarrus-properties-realtor-banner.png?alt=media&token=dd22c19e-804e-4842-b112-01afc05986f6";
   const [contactModalToggle, setContactModalToggle] = useState(false);
 
   const handleContactModalToggle = () => {
