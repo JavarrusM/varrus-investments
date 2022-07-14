@@ -411,7 +411,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Construction",
-    href: "/construction",
+    // href: "/construction",
     children: [
       {
         label: "General Construction",
@@ -422,6 +422,22 @@ const NAV_ITEMS = [
         label: "Renovations",
         subLabel: "Restoring properties to their former glory",
         href: "/construction/renovations",
+      },
+    ],
+  },
+  {
+    label: "Legal",
+    // href: "/legal",
+    children: [
+      {
+        label: "Consultations",
+        subLabel: "Discuss real estate legalitiies with verified attorneys",
+        href: "/legal/consultations",
+      },
+      {
+        label: "Escrow",
+        subLabel: "Lock your transaction funds with our escrow services",
+        href: "/legal/escrow",
       },
     ],
   },
