@@ -374,7 +374,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Media",
-    href: "/media",
+    // href: "/media",
     children: [
       {
         label: "Virtual",
@@ -388,17 +388,27 @@ const NAV_ITEMS = [
       },
     ],
   },
-  // {
-  //   label: "Maintenance",
-  //   href: "/maintenance",
-  //   children: [
-  //     {
-  //       label: "House Repairs",
-  //       subLabel: "Find the highest quality services and people for you work",
-  //       href: "/maintenance?purpose=repairs",
-  //     },
-  //   ],
-  // },
+  {
+    label: "Maintenance",
+    // href: "/maintenance",
+    children: [
+      {
+        label: "House Repairs",
+        subLabel: "Quality repair personnel with expert supervision",
+        href: "/maintenance/repairs",
+      },
+      {
+        label: "Waste Management",
+        subLabel: "Residential and apartment trash pickup",
+        href: "/maintenance/waste",
+      },
+      {
+        label: "Cleaning",
+        subLabel: "Schedule cleaning services",
+        href: "/maintenance/cleaning",
+      },
+    ],
+  },
   // {
   //   label: "Construction",
   //   href: "/construction",
@@ -409,7 +419,7 @@ const NAV_ITEMS = [
   //       href: "/maintenance?purpose=management",
   //     },
   //     {
-  //       label: "Refurbishing",
+  //       label: "Renovations",
   //       subLabel: "Restoring properties to their former glory",
   //       href: "/maintenance?purpose=repairs",
   //     },
