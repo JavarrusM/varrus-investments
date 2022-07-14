@@ -372,22 +372,22 @@ const NAV_ITEMS = [
       },
     ],
   },
-  // {
-  //   label: "Media",
-  //   href: "/media",
-  //   children: [
-  //     {
-  //       label: "Virtual",
-  //       subLabel: "3D real estate tours, pictures and hosting services",
-  //       href: "/media?purpose=virtual-tour",
-  //     },
-  //     {
-  //       label: "Drone",
-  //       subLabel: "Drone real estate photo and video services",
-  //       href: "/media?purpose=drone-photos",
-  //     },
-  //   ],
-  // },
+  {
+    label: "Media",
+    href: "/media",
+    children: [
+      {
+        label: "Virtual",
+        subLabel: "3D real estate tours, pictures and hosting services",
+        href: "/media?purpose=virtual-tour",
+      },
+      {
+        label: "Drone",
+        subLabel: "Drone real estate photo and video services",
+        href: "/media?purpose=drone-photos",
+      },
+    ],
+  },
   // {
   //   label: "Maintenance",
   //   href: "/maintenance",

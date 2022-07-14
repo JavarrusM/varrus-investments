@@ -61,10 +61,11 @@ export default function GridListWithHeading() {
       />
       <Box p={4}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading fontSize={"3xl"}>Drone Photo and Video Services</Heading>
+          <Heading fontSize={"3xl"}>Virtual Photograghy Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>
-            Get pictures and videos of your properties at every angle. Real
-            estate media services are free if you list or lease with us.
+            Allow others to tour your property from anywhere with our 3D media
+            equipment. Real estate media services are free if you list or lease
+            with us.
           </Text>
           <Button
             fontWeight={"bold"}
@@ -73,7 +74,7 @@ export default function GridListWithHeading() {
             gap="2"
             onClick={handleContactModalToggle}
           >
-            Get drone media today
+            Get virtual media today
             <Image
               size="sm"
               src={require("../../assets/images/varrus-logo-black.png")}
