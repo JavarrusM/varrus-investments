@@ -379,12 +379,12 @@ const NAV_ITEMS = [
       {
         label: "Virtual",
         subLabel: "3D real estate tours, pictures and hosting services",
-        href: "/media?purpose=virtual-tour",
+        href: "/media/virtual",
       },
       {
         label: "Drone",
         subLabel: "Drone real estate photo and video services",
-        href: "/media?purpose=drone-photos",
+        href: "/media/drone",
       },
     ],
   },
