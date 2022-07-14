@@ -409,22 +409,22 @@ const NAV_ITEMS = [
       },
     ],
   },
-  // {
-  //   label: "Construction",
-  //   href: "/construction",
-  //   children: [
-  //     {
-  //       label: "General Construction",
-  //       subLabel: "Build housing at affordable prices",
-  //       href: "/maintenance?purpose=management",
-  //     },
-  //     {
-  //       label: "Renovations",
-  //       subLabel: "Restoring properties to their former glory",
-  //       href: "/maintenance?purpose=repairs",
-  //     },
-  //   ],
-  // },
+  {
+    label: "Construction",
+    href: "/construction",
+    children: [
+      {
+        label: "General Construction",
+        subLabel: "Build housing at affordable prices",
+        href: "/construction/general",
+      },
+      {
+        label: "Renovations",
+        subLabel: "Restoring properties to their former glory",
+        href: "/construction/renovations",
+      },
+    ],
+  },
   // {
   //   label: "Lending",
   //   href: "/lending",
