@@ -44,7 +44,7 @@ const features = [
 
 export default function GridListWithHeading() {
   const varrusPropertiesLogoLink =
-    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fvarrus-properties-realtor-banner.png?alt=media&token=dd22c19e-804e-4842-b112-01afc05986f6";
+    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fvarrus-properties-realtor-banner.png?alt=media&token=181d4b02-f294-4f25-8bf4-3fb99febb5ee";
   const [contactModalToggle, setContactModalToggle] = useState(false);
 
   const handleContactModalToggle = () => {
@@ -56,12 +56,12 @@ export default function GridListWithHeading() {
       <ChakraImage
         src={varrusPropertiesLogoLink}
         width="100vw"
-        height="35vh"
+        height={{ base: "20vh", md: "35vh" }}
         alt="Properties Logo"
       />
       <Box p={4}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading fontSize={"3xl"}>Why list your property with us?</Heading>
+          <Heading fontSize={"3xl"}>Real Estate Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>
             We offer our platform that includes photography, advertisements, and
             promotional services for your properties.
@@ -73,7 +73,7 @@ export default function GridListWithHeading() {
             gap="2"
             onClick={handleContactModalToggle}
           >
-            Contact Us Today
+            Lease your property with us today
             <Image
               size="sm"
               src={VarrusLogoBlack}
