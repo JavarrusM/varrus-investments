@@ -63,9 +63,9 @@ export default function GridListWithHeading() {
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={"3xl"}>Leasing and Rental Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>
-            Optimize your rental income and protect your real estate investments.
-            Vacational, Bread and Breakfast (BnB), Apartments and Residentials
-            are welcome.
+            Optimize your rental income and protect your real estate
+            investments. Vacational, Bread and Breakfast (BnB), Apartments and
+            Residentials are welcome.
           </Text>
           <Button
             fontWeight={"bold"}
@@ -74,7 +74,7 @@ export default function GridListWithHeading() {
             gap="2"
             onClick={handleContactModalToggle}
           >
-            Lease your property with us today
+            Lease With Us Today
             <Image
               size="sm"
               src={VarrusLogoBlack}
