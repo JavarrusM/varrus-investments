@@ -73,7 +73,7 @@ export default function GridListWithHeading() {
             gap="2"
             onClick={handleContactModalToggle}
           >
-            Lease your property with us today
+            Sell your property with us today
             <Image
               size="sm"
               src={VarrusLogoBlack}
