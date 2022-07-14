@@ -365,11 +365,11 @@ const NAV_ITEMS = [
         subLabel: "Explore our rental offerings",
         href: "/properties?purpose=renting",
       },
-      // {
-      //   label: "Leasing",
-      //   subLabel: "Lease with our property management team",
-      //   href: "/leasing",
-      // },
+      {
+        label: "Leasing",
+        subLabel: "Lease with our property management team",
+        href: "/leasing",
+      },
     ],
   },
   // {

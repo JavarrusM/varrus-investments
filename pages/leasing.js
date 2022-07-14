@@ -23,7 +23,7 @@ const features = [
   {
     id: 1,
     title: "Network",
-    text: "Our vast network of clients will speed up the time your property gets sold.",
+    text: "Leasing your property with us gives you quick access to our internal services.",
   },
   {
     id: 2,
@@ -56,16 +56,16 @@ export default function GridListWithHeading() {
       <ChakraImage
         src={varrusPropertiesLogoLink}
         width="100vw"
-        height="35vh"
+        height={{ base: "20vh", md: "35vh" }}
         alt="Properties Logo"
       />
       <Box p={4}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={"3xl"}>Leasing and Rental Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>
-            Optimize your rental income and proctect you real estate
-            investments. Vacational, Bread and Breakfast (BnB), Apartments and
-            Residentials are welcome.
+            Optimize your rental income and protect your real estate investments.
+            Vacational, Bread and Breakfast (BnB), Apartments and Residentials
+            are welcome.
           </Text>
           <Button
             fontWeight={"bold"}
@@ -74,7 +74,7 @@ export default function GridListWithHeading() {
             gap="2"
             onClick={handleContactModalToggle}
           >
-            Contact Us Today
+            Lease your property with us today
             <Image
               size="sm"
               src={VarrusLogoBlack}
