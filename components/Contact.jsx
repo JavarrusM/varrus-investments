@@ -52,7 +52,13 @@ import { BsWhatsapp, BsPerson, BsYoutube } from "react-icons/bs";
 import { send } from "emailjs-com";
 import { CheckIcon } from "@chakra-ui/icons";
 
-function ContactModal({ handleContactModalToggle, contactModalToggle }) {
+const DEADLINE_SERVICES = ["media", "maintenance"];
+
+function ContactModal({
+  handleContactModalToggle,
+  contactModalToggle,
+  subject = "",
+}) {
   const btnRef = useRef();
   const [isWhatsappCopied, setIsWhatsappCopied] = useState(false);
   const [isEmailCopied, setIsEmailCopied] = useState(false);
@@ -60,6 +66,8 @@ function ContactModal({ handleContactModalToggle, contactModalToggle }) {
     from_name: "",
     message: "",
     reply_to: "",
+    subject: subject,
+    due_date: "",
   });
   const [messageStatus, setMessageStatus] = useState("Send Message");
   const [sendColorStatus, setSendColorStatus] = useState("black");
@@ -82,6 +90,8 @@ function ContactModal({ handleContactModalToggle, contactModalToggle }) {
             from_name: "",
             message: "",
             reply_to: "",
+            subject: subject,
+            due_date: "",
           });
         }, 1500);
       })
@@ -333,6 +343,20 @@ function ContactModal({ handleContactModalToggle, contactModalToggle }) {
                       onChange={handleChange}
                     />
                   </FormControl>
+                  {DEADLINE_SERVICES.includes(subject) && (
+                    <FormControl id="message" isRequired>
+                      <FormLabel>Due Date</FormLabel>
+                      <Input
+                        placeHolder="Select Date and Time"
+                        size="md"
+                        backgroundColor="#ffffff"
+                        type="date"
+                        value={toSend.due_date}
+                        name="due_date"
+                        onChange={handleChange}
+                      />
+                    </FormControl>
+                  )}
                 </VStack>
               </Box>
             </Box>

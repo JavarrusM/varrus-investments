@@ -84,6 +84,7 @@ export default function GridListWithHeading() {
           <ContactModal
             handleContactModalToggle={handleContactModalToggle}
             contactModalToggle={contactModalToggle}
+            subject="maintenance"
           />
         </Stack>
         <Container maxW={"6xl"} mt={10}>
