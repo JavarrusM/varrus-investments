@@ -50,6 +50,20 @@ const SERVICES = {
         "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/services%2Fvarrus-media-photo-block.png?alt=media&token=0184a882-4dac-4133-9b63-4b695e81820e",
     },
   ],
+  Construction: [
+    {
+      name: "General Construction",
+      ref: "/general",
+      cover:
+        "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/services%2Fvarrus-construction-general-block.png?alt=media&token=76c39f6e-5200-4a27-824b-5266515d3d81",
+    },
+    {
+      name: "Renovations",
+      ref: "/renovations",
+      cover:
+        "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/services%2Fvarrus-construction-renovations-block.png?alt=media&token=cf3d9c83-48cb-4e22-8caf-a3dc43710130",
+    },
+  ],
 };
 
 export default function Properties({ properties }) {
@@ -91,6 +105,15 @@ export default function Properties({ properties }) {
         </Text>
         <Flex flexWrap="wrap" gridGap={2} p={3}>
           {SERVICES.Media.map((service) => (
+            <Service service={service} key={service.name} />
+          ))}
+        </Flex>
+
+        <Text fontSize="2xl" p="4" fontWeight="bold">
+          Construction
+        </Text>
+        <Flex flexWrap="wrap" gridGap={2} p={3}>
+          {SERVICES.Construction.map((service) => (
             <Service service={service} key={service.name} />
           ))}
         </Flex>
