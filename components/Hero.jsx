@@ -68,8 +68,8 @@ export default function Hero() {
             opacity="0.8"
             as={Box}
             textAlign={"center"}
-            spacing={{ base: 8, md: 14 }}
-            py={{ base: 20, md: 36 }}
+            spacing={{ base: 4, md: 14 }}
+            py={{ base: 5, md: 36 }}
             w="100vw"
             bg="white"
             justifyContent="center"
@@ -105,15 +105,16 @@ export default function Hero() {
                 // fontSize="xl"
                 fontSize={{ base: "sm", md: "xl" }}
               >
-                Varrus is striving to make transparent Dominican Republic
-                services by offering software for clients and working with
-                verified partners that have an accomplished track record.
-                Originated in Puerto Plata, with plans to expand country-wide.
+                Varrus is a service broker that offers software to clients to
+                ensure transparent real estate services in the Dominican
+                Republic. We only work with verified partners with verified
+                cerftifications. Originated in Puerto Plata, with plans to
+                expand country-wide.
               </Text>
             </Center>
             <Stack
               direction={"column"}
-              spacing={3}
+              spacing={2}
               align={"center"}
               alignSelf={"center"}
               position={"relative"}
@@ -132,9 +133,9 @@ export default function Hero() {
                   Services
                 </Button>
               </Link>
-              <Button variant="link" colorScheme="blue" size="sm">
+              {/* <Button variant="link" colorScheme="blue" size="sm">
                 Learn more
-              </Button>
+              </Button> */}
               <Box display={{ base: "none", sm: "block" }}>
                 <Icon
                   as={Arrow}
