@@ -14,7 +14,7 @@ import {
   Center,
   useBreakpointValue,
   Flex,
-  Image as ChakraImage,
+  // Image as ChakraImage,
   Link,
 } from "@chakra-ui/react";
 import Image from "next/image";
@@ -27,7 +27,8 @@ import VarrusFullLogoBlack from "../assets/images/varrus-full-logo-black.png";
 
 export default function Hero() {
   const coverUrl =
-    "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fhero-image.png?alt=media&token=99e29bad-17e2-4370-8be4-0310a53fc37f";
+    "https://kuula.co/share/N6wtX?logo=-1&info=0&fs=0&vr=0&gyro=0&autorotate=0.53&autopalt=1&thumbs=0&alpha=0.60&inst=0&keys=0";
+  // "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fhero-image.png?alt=media&token=99e29bad-17e2-4370-8be4-0310a53fc37f";
   // "https://firebasestorage.googleapis.com/v0/b/varrus-ee20f.appspot.com/o/home%2Fhome-photo.jpg?alt=media&token=e9381170-1949-48ca-b02f-b5a727948eb1";
 
   return (
@@ -39,18 +40,20 @@ export default function Hero() {
         />
       </Head>
       <Flex justifyContent="center" overflowX="hidden" overflowY="auto">
-        <Container
+        <Box
           // background="rgba(0, 0, 0, 0.5)"
           w={"100%"}
           h={"100vh"}
           maxWidth="none"
-          backgroundImage={` url('${coverUrl}')`}
+          src={coverUrl}
+          // backgroundImage={` url('${coverUrl}')`}
           backgroundSize={"cover"}
           backgroundPosition={"center center"}
           position="fixed"
           zIndex="-1"
           opacity="0.9"
           top="0"
+          as="iframe"
         />
         <Stack
           height="100vh"
@@ -62,7 +65,7 @@ export default function Hero() {
           <Stack
             // height="fit-content"
             height={{ md: "100vh", base: "fit-content" }}
-            opacity="0.7"
+            opacity="0.8"
             as={Box}
             textAlign={"center"}
             spacing={{ base: 8, md: 14 }}
@@ -115,7 +118,7 @@ export default function Hero() {
               alignSelf={"center"}
               position={"relative"}
             >
-              <Link href="/properties">
+              <Link href="/services">
                 <Button
                   colorScheme={"green"}
                   bg={"black"}
@@ -126,7 +129,7 @@ export default function Hero() {
                     textDecoration: "none",
                   }}
                 >
-                  Properties
+                  Services
                 </Button>
               </Link>
               <Button variant="link" colorScheme="blue" size="sm">
