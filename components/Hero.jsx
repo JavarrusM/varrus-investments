@@ -121,7 +121,12 @@ export default function Hero() {
               alignSelf={"center"}
               position={"relative"}
             >
-              <Link href="/services">
+              <Link
+                href="/services"
+                _hover={{
+                  textDecoration: "none",
+                }}
+              >
                 <Button
                   colorScheme={"green"}
                   bg={"black"}
