@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 import {
   Box,
   Flex,
   Text,
   Avatar,
   Spacer,
-  Image,
+  Image as ChakraImage,
 } from "@chakra-ui/react";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
@@ -48,7 +48,7 @@ const Property = ({
         shadow="lg"
       >
         <Box>
-          <Image
+          <ChakraImage
             src={coverUrl}
             width={{ base: "100%", lg: 420 }}
             height={{ lg: 260 }}
