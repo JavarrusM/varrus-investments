@@ -68,7 +68,7 @@ export default function Hero() {
             opacity="0.8"
             as={Box}
             textAlign={"center"}
-            spacing={{ base: 4, md: 14 }}
+            spacing={{ base: 2, md: 14 }}
             py={{ base: 5, md: 36 }}
             w="100vw"
             bg="white"
@@ -80,10 +80,13 @@ export default function Hero() {
               lineHeight={"110%"}
               color={"white"}
             >
-              <Text as={"span"} color={"black"}>
+              <Text
+                as="span"
+                display={{ base: "none", sm: "block" }}
+                color="black"
+              >
                 VARRUS
               </Text>
-              <br />
               <Image
                 src={VarrusFullLogoBlack}
                 alt="varrus hero logo black"
@@ -105,11 +108,10 @@ export default function Hero() {
                 // fontSize="xl"
                 fontSize={{ base: "sm", md: "xl" }}
               >
-                Varrus is a service broker that offers software to clients to
-                ensure transparent real estate services in the Dominican
-                Republic. We only work with verified partners with verified
-                cerftifications. Originated in Puerto Plata, with plans to
-                expand country-wide.
+                Varrus LLC is a Dominican Republic real estate service broker
+                located in Puerto Plata. We offer software to clients to provide
+                transparent processes between our clients and partners.
+                Servicing Puerto Plata, with plans to expand country-wide.
               </Text>
             </Center>
             <Stack
@@ -130,7 +132,7 @@ export default function Hero() {
                     textDecoration: "none",
                   }}
                 >
-                  Services
+                  SERVICES
                 </Button>
               </Link>
               {/* <Button variant="link" colorScheme="blue" size="sm">
