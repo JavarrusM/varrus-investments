@@ -48,7 +48,8 @@ const ImageScrollBar = ({ data }) => (
           src={item.url}
           key={idx}
           width="full"
-          height="85vh"
+          // height="85vh"
+          height={{ base: "60vh", md: "85vh" }}
           itemID={idx}
         >
           {/* {item.tpe === "photo" && (

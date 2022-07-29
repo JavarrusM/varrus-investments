@@ -124,14 +124,14 @@ const PropertyDetails = ({
                 gap="2"
                 onClick={handleContactModalToggle}
               >
-                Contact: {"+1-859-488-6846"}
                 <Image
                   size="sm"
                   src={VarrusLogoBlack}
                   alt="agency icons"
-                  width={25}
-                  height={25}
+                  width={20}
+                  height={20}
                 />
+                Contact Us
               </Button>
               <ContactModal
                 handleContactModalToggle={handleContactModalToggle}
