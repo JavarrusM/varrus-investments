@@ -124,13 +124,13 @@ const PropertyDetails = ({
                 gap="2"
                 onClick={handleContactModalToggle}
               >
-                <Image
+                {/* <Image
                   size="sm"
                   src={VarrusLogoBlack}
                   alt="agency icons"
                   width={20}
                   height={20}
-                />
+                /> */}
                 Contact Us
               </Button>
               <ContactModal
