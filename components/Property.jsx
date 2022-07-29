@@ -93,7 +93,7 @@ const Property = ({
             </Flex>{" "}
             |{" "}
             <Flex alignItems="center" flexDir="row" gap="1">
-              {millify(area)} sqm <BsGridFill />
+              {area > 0 ? millify(area) : "-"} sqm <BsGridFill />
             </Flex>
           </Flex>
           <Text fontSize="lg">

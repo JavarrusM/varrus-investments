@@ -76,7 +76,7 @@ const PropertyDetails = ({
         width="100%"
       >
         <SmoothLink to="content" smooth={true}>
-          <Button
+          {/* <Button
             color="whiteAlpha.900"
             colorScheme="gray"
             variant="ghost"
@@ -84,7 +84,7 @@ const PropertyDetails = ({
             _hover={{ color: "blackAlpha.900", background: "whiteAlpha.900" }}
           >
             More Details
-          </Button>
+          </Button> */}
         </SmoothLink>
       </Flex>
       <Box
@@ -155,7 +155,7 @@ const PropertyDetails = ({
             </Flex>{" "}
             |{" "}
             <Flex alignItems="center" flexDir="row" gap="1">
-              {millify(area)} sqm <BsGridFill />
+              {area > 0 ? millify(area) : "-"} sqm <BsGridFill />
             </Flex>
           </Flex>
           <Box marginTop="2">
@@ -215,13 +215,14 @@ const PropertyDetails = ({
             </Flex>
           </Flex>
           <Box>
-            {amenities.length > 0 && (
+            {amenities && amenities.length > 0 && (
               <Text fontSize="2xl" fontWeight="black" marginTop="5">
                 Amenities
               </Text>
             )}
             <Flex flexWrap="wrap">
-              {amenities.length > 0 &&
+              {amenities &&
+                amenities.length > 0 &&
                 amenities.map((amenity) => (
                   <Text
                     fontWeight="bold"

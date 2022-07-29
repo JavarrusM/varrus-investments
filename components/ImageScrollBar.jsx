@@ -91,7 +91,7 @@ const ImageScrollBar = ({ data }) => (
     {/* <span> */}
     <Flex justify={"end"}>
       <Text as="cite" fontSize={"sm"} textAlign="end">
-        Powered by Varrus Media{" "}
+        Varrus Media{" "}
         <Link href="/contact">
           <Button
             cursor="pointer"
