@@ -9,6 +9,7 @@ import {
   Avatar,
   Spacer,
   Image as ChakraImage,
+  Badge,
 } from "@chakra-ui/react";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
@@ -30,6 +31,7 @@ const Property = ({
     agency,
     isVerified,
     coverUrl,
+    status,
   },
 }) => {
   const storage = getStorage();
@@ -47,7 +49,30 @@ const Property = ({
         rounded="lg"
         shadow="lg"
       >
-        <Box>
+        <Box position="relative">
+          <Flex
+            position="absolute"
+            justifyContent="left"
+            width="100%"
+            opacity="0.75"
+            padding="0.5rem"
+          >
+            {status === "available" && (
+              <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="green">
+                AVAILABLE
+              </Badge>
+            )}
+            {status === "sold" && (
+              <Badge
+                rounded="full"
+                px="2"
+                fontSize="0.8em"
+                colorScheme="yellow"
+              >
+                SOLD
+              </Badge>
+            )}
+          </Flex>
           <ChakraImage
             src={coverUrl}
             width={{ base: "100%", lg: 420 }}
