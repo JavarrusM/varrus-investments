@@ -45,7 +45,7 @@ export default function Navbar() {
   };
 
   return (
-    <Box>
+    <Box position="fixed" width="100%" zIndex={3}>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
