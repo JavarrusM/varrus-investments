@@ -40,7 +40,7 @@ const Property = ({
     <Link href={`/properties/${name}`} passHref>
       <Flex
         flexWrap="wrap"
-        w={{ base: "100%", lg: "420px" }}
+        // w={{ base: "100%", lg: "420px" }}
         p="S"
         paddingTop="0"
         justifyContent="flex-start"
@@ -75,9 +75,11 @@ const Property = ({
           </Flex>
           <ChakraImage
             src={coverUrl}
-            width={{ base: "100%", lg: 420 }}
-            height={{ lg: 260 }}
-            layout="intrinsic"
+            width={1000}
+            // width="100%"
+            height={260}
+            // maxH="260"
+            // layout="full"
             alt="house"
             roundedTop="lg"
           />

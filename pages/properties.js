@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Flex, Box, Text, Icon } from "@chakra-ui/react";
+import { Flex, Box, Text, Icon, Grid, GridItem } from "@chakra-ui/react";
 import { BsFilter } from "react-icons/bs";
 import SearchFilters from "../components/SearchFilters";
 import Property from "../components/Property";
@@ -47,13 +47,24 @@ export default function Properties({ properties }) {
 
       {searchFilters && <SearchFilters />}
       <Text fontSize="2xl" p="4" fontWeight="bold">
-        Properties {/*router.query.purpose*/}
+        Properties 
       </Text>
-      <Flex flexWrap="wrap" gridGap={2} p={3}>
+
+      <Grid
+        p={3}
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          md: "repeat(3, 1fr)",
+          "2xl": "repeat(4, 1fr)",
+        }}
+        gap={2}
+      >
         {properties.map((property) => (
-          <Property property={property} key={property.name} />
+          <GridItem key={property.name}>
+            <Property property={property} key={property.name} />
+          </GridItem>
         ))}
-      </Flex>
+      </Grid>
       {properties.length === 0 && (
         <Flex
           justifyContent="center"
