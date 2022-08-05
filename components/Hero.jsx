@@ -63,8 +63,8 @@ export default function Hero() {
           boxShadow={"3xl"}
         >
           <Stack
-            // height="fit-content"
-            height={{ md: "100vh", base: "fit-content" }}
+            height={{ md: "90vh", base: "fit-content" }}
+            top="10vh"
             opacity="0.8"
             as={Box}
             textAlign={"center"}
@@ -73,6 +73,7 @@ export default function Hero() {
             w="100vw"
             bg="white"
             justifyContent="center"
+            position="relative"
           >
             <Heading
               fontWeight={600}
