@@ -1,4 +1,5 @@
 // import Link from "next/link";
+import { useRouter } from "next/router";
 import { FcMenu, FcHome, FcAbout } from "react-icons/fc";
 import { BsSearch } from "react-icons/bs";
 import { FiKey } from "react-icons/fi";
@@ -44,8 +45,12 @@ export default function Navbar() {
     setContactDrawerToggle((prev) => !prev);
   };
 
+  const path = useRouter().pathname;
+
+  const position = path === "/" ? "fixed" : "relative";
+
   return (
-    <Box position="fixed" width="100%" zIndex={3}>
+    <Box position={position} width="100%" zIndex={3}>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
