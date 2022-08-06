@@ -76,7 +76,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             isInvalid={validateEmail()}
             errorBorderColor="red.300"
             label="email"
-            bg="blackAlpha.100"
+            bg="blackAlpha.300"
             onChange={handleChange}
             value={email}
             type="email"
@@ -84,7 +84,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             isRequired
             border={0}
             _focus={{
-              bg: "blackAlpha.300",
+              bg: "blackAlpha.100",
             }}
           />
           <IconButton

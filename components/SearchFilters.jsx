@@ -31,7 +31,7 @@ const SearchFilters = () => {
       }
     });
 
-    router.push({ pathname: path, query });
+    router.push({ pathname: path, query }); 
   };
 
   return (
