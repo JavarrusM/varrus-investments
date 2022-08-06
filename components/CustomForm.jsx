@@ -91,8 +91,8 @@ const CustomForm = ({ status, message, onValidated }) => {
             label="subscribe"
             type="submit"
             isLoading={isLoadig}
-            bg={useColorModeValue("black", "black")}
-            color={useColorModeValue("white", "gray.800")}
+            bg="black"
+            color={"white"}
             _hover={{
               bg: "gray.400",
             }}
