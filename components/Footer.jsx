@@ -74,6 +74,7 @@ export default function Footer() {
     <Box
       bg={useColorModeValue("white", "gray.800")}
       color={useColorModeValue("gray.600", "white")}
+      borderTop="1px black solid"
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid
