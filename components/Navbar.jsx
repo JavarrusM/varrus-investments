@@ -430,22 +430,22 @@ const NAV_ITEMS = [
       },
     ],
   },
-  {
-    label: "Legal",
-    // href: "/legal",
-    children: [
-      {
-        label: "Consultations",
-        subLabel: "Discuss real estate legalitiies with verified attorneys",
-        href: "/legal/consultations",
-      },
-      {
-        label: "Escrow",
-        subLabel: "Lock your transaction funds with our escrow services",
-        href: "/legal/escrow",
-      },
-    ],
-  },
+  // {
+  //   label: "Legal",
+  //   // href: "/legal",
+  //   children: [
+  //     {
+  //       label: "Consultations",
+  //       subLabel: "Discuss real estate legalitiies with verified attorneys",
+  //       href: "/legal/consultations",
+  //     },
+  //     {
+  //       label: "Escrow",
+  //       subLabel: "Lock your transaction funds with our escrow services",
+  //       href: "/legal/escrow",
+  //     },
+  //   ],
+  // },
   // {
   //   label: "Lending",
   //   href: "/lending",
