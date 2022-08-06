@@ -27,7 +27,7 @@ const features = [
   {
     id: 2,
     title: "Transparency",
-    text: "We guarantee you'll know every step of the process with reassurance. Remember, we don't get paid until you do!",
+    text: "We guarantee you'll know every step of the process with reassurance.",
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ export default function GridListWithHeading() {
         height={{ base: "20vh", md: "35vh" }}
         alt="Properties Logo"
       />
-      <Box p={4}>
+      <Box p={20}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={"3xl"}>Home Repair Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>

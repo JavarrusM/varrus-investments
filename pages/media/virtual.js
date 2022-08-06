@@ -22,23 +22,23 @@ import { ContactModal } from "../../components/Contact";
 const features = [
   {
     id: 1,
-    title: "Network",
-    text: "Our vast network of clients will speed up the time your property gets sold.",
+    title: "Hosting",
+    text: "We'll host your virtual photos and tours for free while we sale your property.",
   },
   {
     id: 2,
     title: "Transparency",
-    text: "We guarantee you'll know every step of the process with reassurance. Remember, we don't get paid until you do!",
+    text: "You'll know every step of the process with reassurance.",
   },
   {
     id: 3,
     title: "Experience",
-    text: "Our team has verified engineers, lawyers and brokers that can provide you with all your housing needs.",
+    text: "We know how to stage your property to attract various clients, from investors to average home-buyers.",
   },
   {
     id: 4,
-    title: "Technology",
-    text: "We create surreal experiences, with virtual tours, 3D pictures, drone videos and more; at no additional costs to you.",
+    title: "Low Costs",
+    text: "We don't charge for virtual photography, as long as we are allowed to sell it through our platform.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function GridListWithHeading() {
         height={{ base: "20vh", md: "35vh" }}
         alt="Properties Logo"
       />
-      <Box p={4}>
+      <Box p={20}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={"3xl"}>Virtual Photograghy Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>
@@ -74,7 +74,7 @@ export default function GridListWithHeading() {
             gap="2"
             onClick={handleContactModalToggle}
           >
-            Get virtual media today
+            Get Virtual Media Today
             <Image
               size="sm"
               src={require("../../assets/images/varrus-logo-black.png")}

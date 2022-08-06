@@ -21,23 +21,23 @@ import { ContactModal } from "../../components/Contact";
 const features = [
   {
     id: 1,
-    title: "Network",
-    text: "Leasing your property with us gives you quick access to our internal services.",
+    title: "Schedule",
+    text: "Set up a schedule and frequency for us to come pick up your waste.",
   },
   {
     id: 2,
     title: "Transparency",
-    text: "We guarantee you'll know every step of the process with reassurance. Remember, we don't get paid until you do!",
+    text: "We guarantee you'll know every step of the process with reassurance.",
   },
   {
     id: 3,
-    title: "Experience",
-    text: "Our team has verified engineers, lawyers and brokers that can provide you with all your housing needs.",
+    title: "Vallet",
+    text: "For apartments, we will pick up the trash door to door (this addition costs a little extra).",
   },
   {
     id: 4,
-    title: "Technology",
-    text: "We create surreal experiences, with virtual tours, 3D pictures, drone videos and more; at no additional costs to you.",
+    title: "System",
+    text: "We can set up a trash system in your area to create an efficient process.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function GridListWithHeading() {
         height={{ base: "20vh", md: "35vh" }}
         alt="Properties Logo"
       />
-      <Box p={4}>
+      <Box p={20}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={"3xl"}>Waste Management Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>

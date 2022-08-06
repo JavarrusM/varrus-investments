@@ -22,12 +22,12 @@ const features = [
   {
     id: 1,
     title: "Network",
-    text: "Leasing your property with us gives you quick access to our internal services.",
+    text: "We can help you buy your materials and furniture directly from the manufacturers.",
   },
   {
     id: 2,
     title: "Transparency",
-    text: "We guarantee you'll know every step of the process with reassurance. Remember, we don't get paid until you do!",
+    text: "We guarantee you'll know every step of the process with reassurance.",
   },
   {
     id: 3,
@@ -36,8 +36,8 @@ const features = [
   },
   {
     id: 4,
-    title: "Technology",
-    text: "We create surreal experiences, with virtual tours, 3D pictures, drone videos and more; at no additional costs to you.",
+    title: "Reporting",
+    text: "We use virtual tours, 3D pictures, and drone videos to keep you updated weekly",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function GridListWithHeading() {
         height={{ base: "20vh", md: "35vh" }}
         alt="Properties Logo"
       />
-      <Box p={4}>
+      <Box p={20}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={"3xl"}>Renovation Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>

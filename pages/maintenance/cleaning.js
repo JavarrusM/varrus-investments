@@ -21,23 +21,23 @@ import { ContactModal } from "../../components/Contact";
 const features = [
   {
     id: 1,
-    title: "Network",
-    text: "Leasing your property with us gives you quick access to our internal services.",
+    title: "Efficient",
+    text: "Give us your schedule or due date and we'll handle the rest.",
   },
   {
     id: 2,
     title: "Transparency",
-    text: "We guarantee you'll know every step of the process with reassurance. Remember, we don't get paid until you do!",
+    text: "We guarantee you'll know every step of the process with reassurance.",
   },
   {
     id: 3,
     title: "Experience",
-    text: "Our team has verified engineers, lawyers and brokers that can provide you with all your housing needs.",
+    text: "We have a dedicated team of professional cleaners that have years of experience working for large companies",
   },
   {
     id: 4,
-    title: "Technology",
-    text: "We create surreal experiences, with virtual tours, 3D pictures, drone videos and more; at no additional costs to you.",
+    title: "Photography",
+    text: "We send photos after completion to confirm you're satisfaction",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function GridListWithHeading() {
         height={{ base: "20vh", md: "35vh" }}
         alt="Properties Logo"
       />
-      <Box p={4}>
+      <Box p={20}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={"3xl"}>Cleaning Services</Heading>
           <Text color={"gray.600"} fontSize={"xl"}>
